@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ProyectoGeolocalizacion
 {
+    // prueba comentario rama nueva
     public class Program
     {
         public static void Main(string[] args)
