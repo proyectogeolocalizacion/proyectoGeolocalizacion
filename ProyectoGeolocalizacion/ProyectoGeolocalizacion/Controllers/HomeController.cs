@@ -12,6 +12,7 @@ namespace ProyectoGeolocalizacion.Controllers
     {
         public IActionResult Index()
         {
+            //hola ramaIciar
             return View();
         }
 
