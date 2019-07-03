@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ProyectoGeolocalizacion.Models;
 
 namespace ProyectoGeolocalizacion.Data
 {
@@ -12,5 +13,6 @@ namespace ProyectoGeolocalizacion.Data
             : base(options)
         {
         }
+        public DbSet<ProyectoGeolocalizacion.Models.Device> Device { get; set; }
     }
 }
