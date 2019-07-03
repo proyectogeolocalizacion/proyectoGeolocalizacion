@@ -15,6 +15,7 @@ namespace ProyectoGeolocalizacion.Controllers
             //hola ramaIciar
             return View();
         }
+     
 
         public IActionResult Privacy()
         {
