@@ -23,19 +23,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
-//mymap.locate({ setView: true, watch: false }) /* This will return map so you can do chaining */
-//    .on('locationfound', function (e) {
-//        var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-//        var circle = L.circle([e.latitude, e.longitude], e.accuracy / 2, {
-//            weight: 1,
-//            color: 'green',
-//            fillColor: '#d620d3',
-//            fillOpacity: 0.1
-//        });
-//        mymap.addLayer(marker);
-//        mymap.addLayer(circle);
-//        console.log(e.latitude);
-//    })
 
 
 
@@ -68,10 +55,6 @@ document.getElementById("sendButton").addEventListener("click", function (event)
  
     connection.invoke("SendMessage", longitude, latitude).catch(function (err) {
         return console.error(err.toString());
-
-        
-            
-        
 
 
         //connection.invoke("SendMessage", longitude, latitude).catch(function (e) {
