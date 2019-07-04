@@ -31,6 +31,7 @@ namespace ProyectoGeolocalizacion.Controllers
                 ViewData["aliasExists"] =await AliasExistsAsync(alias);
                 ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
                 ViewData["alias"] = alias;
+                ViewData["channel"] = canal;
                 return View();
 
             }
