@@ -22,13 +22,14 @@ namespace ProyectoGeolocalizacion.Controllers
         }
 
 
-        public async Task<IActionResult> Index(string alias)
+        public async Task<IActionResult> Index(string alias, string canal)
         {
-            ViewData["Viewdata"] = false;
-
+            ViewData["aliasExists"] = false;
+            ViewData["channelExists"] = false;
             if (alias != null)
             {
-                ViewData["Viewdata"] =await AliasExistsAsync(alias);
+                ViewData["aliasExists"] =await AliasExistsAsync(alias);
+                ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
                 ViewData["alias"] = alias;
                 return View();
 
@@ -39,6 +40,33 @@ namespace ProyectoGeolocalizacion.Controllers
 
             }
 
+           
+
+        }
+
+
+        public async Task<IActionResult> Datos(string alias, string canal)
+        {
+            ViewData["aliasExists"] = false;
+            ViewData["channelExists"] = false;
+
+            if (alias != null && canal != null)
+            {
+                ViewData["aliasExists"] = await AliasExistsAsync(alias);
+                ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
+                ViewData["alias"] = alias;
+
+
+                return View();
+
+               
+
+            }
+            else
+            {
+                return View();
+
+            }
 
 
 
@@ -67,7 +95,48 @@ namespace ProyectoGeolocalizacion.Controllers
                 return true;
             }
         }
-      
+
+        //COMPROBAR CANAL
+        public async Task<bool> ChannelExistsAsync(string canal,string alias)
+        {
+            var channel = await _context.Channel.FirstOrDefaultAsync(m => m.Name == canal);
+
+            if (channel == null)
+            {
+
+                Channel newChannel = new Channel
+                {
+                    Name = canal
+                };
+                _context.Add(newChannel);
+
+                await _context.SaveChangesAsync();
+                ChannelDevice channelDevice = new ChannelDevice
+                {
+                    Channel = newChannel,
+                    Device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias)
+                };
+                _context.Add(channelDevice);
+
+                await _context.SaveChangesAsync();
+
+                return false;
+
+            }
+            else
+            {
+                ChannelDevice channelDevice = new ChannelDevice
+                {
+                    Channel = channel,
+                    Device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias)
+                };
+                _context.Add(channelDevice);
+
+                await _context.SaveChangesAsync();
+                return true;
+            }
+        }
+
 
         public IActionResult Privacy()
         {
