@@ -7,13 +7,8 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-#logo {
-    font-family: 'Cantarell', sans-serif;
-    height: 80px;
-}
-
-/*Sticky footer styles
--------------------------------------------------- 
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
   font-size: 14px;
 }
@@ -39,72 +34,25 @@ button.accept-policy {
   line-height: inherit;
 }
 
-
-
-
- Sticky footer styles
--------------------------------------------------- 
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-   Margin bottom by footer height 
+  /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-
-    */
-
-
-
-
-
-
-
-
-
-
-#mapid {
-    height: 500px;
-   
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
 }
-
-
-
-.card-img-top {
-    width: 100%;
-    height: 30vw; /*(Viewport Height units) for a more mobile-friendly experience.*/
-    object-fit: cover; /*object-fit: cover enables zoom instead of image stretching.*/
-}
-
-.card-title {
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-.btn btn-primary{
-    text-align: center;
-}
-/*************FOOTER***************/
-.page-footer {
-    text-align: center;
-    background: rgb(64, 179, 224);
-    color: white;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.copyright-footer {
-    color: rgba(30, 139, 195, 1);
-}
-
-
-/*SOCİAL İCONS*/
-
-
-
-
-/* footer social icons */
 
 
