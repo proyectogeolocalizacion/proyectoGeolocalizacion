@@ -13,4 +13,59 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Hubs\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\Maps Home \" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ProyectoGeolocalizacion\obj\ProyectoGeolocalizacion.csproj.nuget.cache" />
+    <None Remove="ProyectoGeolocalizacion\obj\ProyectoGeolocalizacion.csproj.nuget.g.props" />
+    <None Remove="ProyectoGeolocalizacion\obj\ProyectoGeolocalizacion.csproj.nuget.g.targets" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\favicon.ico" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\css\site.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\js\site.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\LICENSE" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery\LICENSE.txt" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery\dist\jquery.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Remove="Views\Maps Home \MapsView.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Downloads\Finder.jpg">
+      <Link>wwwroot\Images\Finder.jpg</Link>
+    </None>
+  </ItemGroup>
 </Project>
