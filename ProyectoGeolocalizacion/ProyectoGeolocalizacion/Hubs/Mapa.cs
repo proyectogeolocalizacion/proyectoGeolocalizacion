@@ -16,12 +16,7 @@ namespace ProyectoGeolocalizacion.Hubs
 
     }
 
-    //public async Task ShowLocation(double longitude, double latitude)
-    //{
-
-
-    //}
-
+    
 
 
 
