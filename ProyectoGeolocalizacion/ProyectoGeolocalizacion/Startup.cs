@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using ProyectoGeolocalizacion.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProyectoGeolocalizacion.Hubs;
 
 namespace ProyectoGeolocalizacion
 {
@@ -43,6 +44,8 @@ namespace ProyectoGeolocalizacion
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +68,11 @@ namespace ProyectoGeolocalizacion
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<Mapa>("/Mapa");
+            });
 
             app.UseMvc(routes =>
             {

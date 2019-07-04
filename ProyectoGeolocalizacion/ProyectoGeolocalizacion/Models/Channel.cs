@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace ProyectoGeolocalizacion.Models
+{
+    public class Channel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        
+        public List<ChannelDevice> ChannelDevices { get; set; }
+    }
+}
