@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="Hubs\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="Views\Maps Home \" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ProyectoGeolocalizacion\obj\ProyectoGeolocalizacion.csproj.nuget.cache" />
@@ -58,7 +57,6 @@
     <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
     <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
     <None Remove="ProyectoGeolocalizacion\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
-    <None Remove="Views\Maps Home \MapsView.css" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images.cs" />
