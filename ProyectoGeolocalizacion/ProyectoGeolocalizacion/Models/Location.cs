@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 
 
+
+
 namespace ProyectoGeolocalizacion.Models
 {
     public class Location
     {
-
 
         public int Id { get; set; }
         public double Latitude { get; set; }
@@ -17,11 +18,5 @@ namespace ProyectoGeolocalizacion.Models
 
         public Device Device { get; set; }
         public int DeviceId { get; set; }
-
-      
-
-
-
-
     }
 }

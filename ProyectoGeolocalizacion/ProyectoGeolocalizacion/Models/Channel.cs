@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Linq;
 using System.Threading.Tasks;
+
+
 
 
 namespace ProyectoGeolocalizacion.Models
@@ -11,7 +12,6 @@ namespace ProyectoGeolocalizacion.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
         public List<ChannelDevice> ChannelDevices { get; set; }
        
 
@@ -23,3 +23,6 @@ namespace ProyectoGeolocalizacion.Models
         
      
   
+
+        
+

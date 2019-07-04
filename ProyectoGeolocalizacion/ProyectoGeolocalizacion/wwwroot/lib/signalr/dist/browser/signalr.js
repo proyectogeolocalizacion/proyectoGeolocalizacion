@@ -136,6 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "JsonHubProtocol", function() { return _index__WEBPACK_IMPORTED_MODULE_1__["JsonHubProtocol"]; });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // This is where we add any polyfills we'll need for the browser. It is the entry module for browser-specific builds.
@@ -163,6 +164,8 @@ if (!Uint8Array.prototype.forEach) {
 }
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // This is where we add any polyfills we'll need for the browser. It is the entry module for browser-specific builds.
@@ -189,7 +192,10 @@ if (!Uint8Array.prototype.forEach) {
     });
 }
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -1464,6 +1470,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "JsonHubProtocol", function() { return _JsonHubProtocol__WEBPACK_IMPORTED_MODULE_9__["JsonHubProtocol"]; });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Version token that will be replaced by the prepack command
@@ -1480,6 +1487,8 @@ var VERSION = "1.1.4";
 
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Version token that will be replaced by the prepack command
@@ -1495,7 +1504,10 @@ var VERSION = "1.1.4";
 
 
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -1508,6 +1520,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeoutError", function() { return TimeoutError; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbortError", function() { return AbortError; });
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -1585,6 +1598,8 @@ var AbortError = /** @class */ (function (_super) {
 }(Error));
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -1661,7 +1676,10 @@ var AbortError = /** @class */ (function (_super) {
     return AbortError;
 }(Error));
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -1672,6 +1690,7 @@ var AbortError = /** @class */ (function (_super) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpResponse", function() { return HttpResponse; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpClient", function() { return HttpClient; });
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -1722,6 +1741,8 @@ var HttpClient = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __assign = (undefined && undefined.__assign) || Object.assign || function(t) {
@@ -1770,7 +1791,10 @@ var HttpClient = /** @class */ (function () {
     return HttpClient;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -1785,6 +1809,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NodeHttpClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
 /* harmony import */ var _XhrHttpClient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -1836,6 +1861,8 @@ var DefaultHttpClient = /** @class */ (function (_super) {
 }(_HttpClient__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -1886,7 +1913,10 @@ var DefaultHttpClient = /** @class */ (function (_super) {
     return DefaultHttpClient;
 }(_HttpClient__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -1897,6 +1927,7 @@ var DefaultHttpClient = /** @class */ (function (_super) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NodeHttpClient", function() { return NodeHttpClient; });
 /* harmony import */ var _HttpClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -1925,6 +1956,8 @@ var NodeHttpClient = /** @class */ (function (_super) {
 }(_HttpClient__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]));
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -1951,7 +1984,10 @@ var NodeHttpClient = /** @class */ (function (_super) {
     return NodeHttpClient;
 }(_HttpClient__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]));
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -1965,6 +2001,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HttpClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _ILogger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -2052,6 +2089,8 @@ var XhrHttpClient = /** @class */ (function (_super) {
 }(_HttpClient__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -2138,7 +2177,10 @@ var XhrHttpClient = /** @class */ (function (_super) {
     return XhrHttpClient;
 }(_HttpClient__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -2148,6 +2190,7 @@ var XhrHttpClient = /** @class */ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogLevel", function() { return LogLevel; });
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -2174,6 +2217,8 @@ var LogLevel;
     LogLevel[LogLevel["None"] = 6] = "None";
 })(LogLevel || (LogLevel = {}));
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // These values are designed to match the ASP.NET Log Levels since that's the pattern we're emulating here.
@@ -2198,7 +2243,10 @@ var LogLevel;
     /** The highest possible log level. Used when configuring logging to indicate that no log messages should be emitted. */
     LogLevel[LogLevel["None"] = 6] = "None";
 })(LogLevel || (LogLevel = {}));
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -2214,6 +2262,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ILogger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -2733,6 +2782,8 @@ var HubConnection = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -3251,7 +3302,10 @@ var HubConnection = /** @class */ (function () {
     return HubConnection;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -3264,6 +3318,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TextMessageFormat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
@@ -3320,6 +3375,8 @@ var HandshakeProtocol = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
@@ -3375,7 +3432,10 @@ var HandshakeProtocol = /** @class */ (function () {
     return HandshakeProtocol;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -3385,6 +3445,7 @@ var HandshakeProtocol = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextMessageFormat", function() { return TextMessageFormat; });
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -3410,6 +3471,8 @@ var TextMessageFormat = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Not exported from index
@@ -3433,7 +3496,10 @@ var TextMessageFormat = /** @class */ (function () {
     return TextMessageFormat;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -3454,6 +3520,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ILogger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _Loggers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -3675,6 +3742,8 @@ var ConsoleLogger = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -3895,7 +3964,10 @@ var ConsoleLogger = /** @class */ (function () {
     return ConsoleLogger;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -3906,6 +3978,7 @@ var ConsoleLogger = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NullLogger", function() { return NullLogger; });
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 /** A logger that does nothing when log messages are sent to it. */
@@ -3922,6 +3995,8 @@ var NullLogger = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 /** A logger that does nothing when log messages are sent to it. */
@@ -3937,7 +4012,10 @@ var NullLogger = /** @class */ (function () {
     return NullLogger;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -3947,6 +4025,7 @@ var NullLogger = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageType", function() { return MessageType; });
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -3969,6 +4048,8 @@ var MessageType;
     MessageType[MessageType["Close"] = 7] = "Close";
 })(MessageType || (MessageType = {}));
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 /** Defines the type of a Hub Message. */
@@ -3989,7 +4070,10 @@ var MessageType;
     /** Indicates the message is a Close message and implements the {@link @aspnet/signalr.CloseMessage} interface. */
     MessageType[MessageType["Close"] = 7] = "Close";
 })(MessageType || (MessageType = {}));
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -4005,6 +4089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loggers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
@@ -4077,6 +4162,8 @@ function isLogger(logger) {
     return logger.log !== undefined;
 }
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
@@ -4148,7 +4235,10 @@ var HubConnectionBuilder = /** @class */ (function () {
 function isLogger(logger) {
     return logger.log !== undefined;
 }
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -4166,6 +4256,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
 /* harmony import */ var _WebSocketTransport__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(22);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -4610,6 +4701,8 @@ function transportMatches(requestedTransport, actualTransport) {
     return !requestedTransport || ((actualTransport & requestedTransport) !== 0);
 }
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -5053,7 +5146,10 @@ var HttpConnection = /** @class */ (function () {
 function transportMatches(requestedTransport, actualTransport) {
     return !requestedTransport || ((actualTransport & requestedTransport) !== 0);
 }
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -5064,6 +5160,7 @@ function transportMatches(requestedTransport, actualTransport) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpTransportType", function() { return HttpTransportType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransferFormat", function() { return TransferFormat; });
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -5089,6 +5186,8 @@ var TransferFormat;
     TransferFormat[TransferFormat["Binary"] = 2] = "Binary";
 })(TransferFormat || (TransferFormat = {}));
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // This will be treated as a bit flag in the future, so we keep it using power-of-two values.
@@ -5112,7 +5211,10 @@ var TransferFormat;
     /** Specifies that binary data will be transmitted over the connection. */
     TransferFormat[TransferFormat["Binary"] = 2] = "Binary";
 })(TransferFormat || (TransferFormat = {}));
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -5128,6 +5230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ITransport__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -5411,6 +5514,8 @@ var LongPollingTransport = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -5693,7 +5798,10 @@ var LongPollingTransport = /** @class */ (function () {
     return LongPollingTransport;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -5703,6 +5811,7 @@ var LongPollingTransport = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbortController", function() { return AbortController; });
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -5742,6 +5851,8 @@ var AbortController = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Rough polyfill of https://developer.mozilla.org/en-US/docs/Web/API/AbortController
@@ -5779,7 +5890,10 @@ var AbortController = /** @class */ (function () {
     return AbortController;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -5793,6 +5907,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ITransport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -5945,6 +6060,8 @@ var ServerSentEventsTransport = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -6096,7 +6213,10 @@ var ServerSentEventsTransport = /** @class */ (function () {
     return ServerSentEventsTransport;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -6109,6 +6229,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ILogger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _ITransport__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var _Utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
@@ -6263,6 +6384,8 @@ var WebSocketTransport = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -6415,7 +6538,10 @@ var WebSocketTransport = /** @class */ (function () {
     return WebSocketTransport;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ }),
@@ -6431,6 +6557,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loggers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
 /* harmony import */ var _TextMessageFormat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
@@ -6537,6 +6664,8 @@ var JsonHubProtocol = /** @class */ (function () {
 }());
 
 =======
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
@@ -6642,7 +6771,10 @@ var JsonHubProtocol = /** @class */ (function () {
     return JsonHubProtocol;
 }());
 
+<<<<<<< HEAD
 >>>>>>> d0374ee... Update July 4
+=======
+>>>>>>> b33b6641ad612adc5cccfca15ea356f599ab9ab9
 
 
 /***/ })
