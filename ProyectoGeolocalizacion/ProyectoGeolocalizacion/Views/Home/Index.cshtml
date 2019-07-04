@@ -3,8 +3,7 @@
 
 }
 
-<body>
-        
+
 
 
 <div class="row">
@@ -19,9 +18,8 @@
                 <label>Nombre del canal (nuevo o existente)</label>
                 <input id="canal" name="canal" type="text" class="form-control" placeholder="Introduce el canal">
             </div>
-            <button type="submit" class="btn btn-primary">Acceder</button>
+            <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Index" asp-route-alias="@ViewData["alias"]" asp-route-canal="grupoi">Acceder</button>
         </form>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Datos" asp-route-alias="@ViewData["alias"]" asp-route-canal="grupoi">Casa</a>
     </div>
     @{bool deviceExists = (bool)ViewData["aliasExists"]; }
    
@@ -57,7 +55,7 @@
 
 
 </div>
-    </body>
+   
 
 @section Scripts {
     @if (deviceExists)

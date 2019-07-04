@@ -45,32 +45,32 @@ namespace ProyectoGeolocalizacion.Controllers
         }
 
 
-        public async Task<IActionResult> Datos(string alias, string canal)
-        {
-            ViewData["aliasExists"] = false;
-            ViewData["channelExists"] = false;
+        //public async Task<IActionResult> Datos(string alias, string canal)
+        //{
+        //    ViewData["aliasExists"] = false;
+        //    ViewData["channelExists"] = false;
 
-            if (alias != null && canal != null)
-            {
-                ViewData["aliasExists"] = await AliasExistsAsync(alias);
-                ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
-                ViewData["alias"] = alias;
+        //    if (alias != null && canal != null)
+        //    {
+        //        ViewData["aliasExists"] = await AliasExistsAsync(alias);
+        //        ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
+        //        ViewData["alias"] = alias;
 
 
-                return View();
+        //        return View();
 
                
 
-            }
-            else
-            {
-                return View();
+        //    }
+        //    else
+        //    {
+        //        return View();
 
-            }
+        //    }
 
 
 
-        }
+        //}
 
         //COMPROBAR ALIAS
         public async Task<bool> AliasExistsAsync(string alias)
