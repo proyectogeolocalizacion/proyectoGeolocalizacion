@@ -11,21 +11,44 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 
-<div id="jonatan"></div>
-    <p><button onclick="getLocation()">Muestra mi localizacion</button></p>
+@*<div id="jonatan"></div>
+<p><button onclick="getLocation()">Muestra mi localizacion</button></p>*@
 
-
-
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            User..........<input type="text" id="userInput" />
+            <br />
+            Message...<input type="text" id="messageInput" />
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
 
 
 <body>
 
 
-<div id="mapid"></div>
+    <div id="mapid"></div>
 
 
 </body>
 
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/canal.js"></script>
 
 
 
