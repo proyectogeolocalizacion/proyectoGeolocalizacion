@@ -1,16 +1,70 @@
 ﻿﻿@{
     ViewData["Title"] = "Home Page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    
-</div>
-
-﻿@{
-    ViewData["Title"] = "Home page";
 }
 
 <body>
-        <div id="mapid"></div>
-</body>
+        
+
+
+<div class="row">
+    <div class="col-4" id="inicio">
+        <form asp-controller="Home" asp-action="Index">
+            <div class="form-group">
+                <label>Alias del dispositivo</label>
+                <input id="alias" name="alias" type="text" class="form-control" placeholder="Introduce el alias" value="@if (ViewData["alias"] != null) {<text>@ViewData["alias"]</text>}">
+
+            </div>
+            <div class="form-group">
+                <label>Nombre del canal (nuevo o existente)</label>
+                <input id="canal" name="canal" type="text" class="form-control" placeholder="Introduce el canal">
+            </div>
+            <button type="submit" class="btn btn-primary">Acceder</button>
+        </form>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Datos" asp-route-alias="@ViewData["alias"]" asp-route-canal="grupoi">Casa</a>
+    </div>
+    @{bool deviceExists = (bool)ViewData["aliasExists"]; }
+   
+    @{bool channelExists = (bool)ViewData["channelExists"]; }
+
+
+
+    @if (deviceExists)
+    {
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Conflicto de alias</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>El alias introducido ya existe.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
+</div>
+    </body>
+
+@section Scripts {
+    @if (deviceExists)
+    {
+        <script>
+            $('#exampleModal').modal();
+        </script>
+    }
+}
+
