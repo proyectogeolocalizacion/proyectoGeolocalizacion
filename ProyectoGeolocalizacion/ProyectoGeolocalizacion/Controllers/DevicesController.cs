@@ -26,10 +26,6 @@ namespace ProyectoGeolocalizacion.Controllers
         }
 
 
-
-
-
-
         // GET: Devices/Details/5
         public async Task<IActionResult> Details(int? id)
         {

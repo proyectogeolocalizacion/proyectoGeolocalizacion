@@ -36,6 +36,11 @@
 
 //mymap.locate({ setView: true, watch: false }) /* This will return map so you can do chaining */
 //    .on('locationfound', function (e) {
+//              connection.invoke("SendMessage", e.longitude, e.latitude).catch(function (err) {
+//              return console.error(err.toString());
+
+
+
 //        var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
 //        var circle = L.circle([e.latitude, e.longitude], e.accuracy / 2, {
 //            weight: 1,
