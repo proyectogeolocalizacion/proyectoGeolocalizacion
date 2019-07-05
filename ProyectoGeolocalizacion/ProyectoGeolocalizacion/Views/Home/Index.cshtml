@@ -1,5 +1,6 @@
 ﻿﻿@{
     ViewData["Title"] = "Home Page";
+
 }
 
 <div class="row">
@@ -7,7 +8,7 @@
         <form asp-controller="Home" asp-action="Index">
             <div class="form-group">
                 <label>Alias del dispositivo</label>
-                <input id="alias" name="alias" type="text" class="form-control" placeholder="Introduce el alias" value="@if (ViewData["alias"] != null) {<text>@ViewData["alias"]</text>}">
+                <input id="alias" name="alias" type="text" class="form-control" placeholder="Introduce el alias" value="@if (ViewData["alias"] != null){<text>]</text>}">
 
 </div>
 <div class="form-group">
@@ -20,6 +21,7 @@
  @{bool deviceExists = (bool)ViewData["aliasExists"]; }
 
  @{bool channelExists = (bool)ViewData["channelExists"]; }
+
 
 
 
@@ -44,7 +46,7 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 
 }
 
@@ -54,12 +56,15 @@
 
 
 
+
 @section Scripts {
+
 @if (deviceExists)
     {
     <script>
-            $('#exampleModal').modal();
-        </script>
-    }
+        $('#exampleModal').modal();
+    </script>
+}
+
 }
 
