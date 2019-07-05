@@ -26,17 +26,25 @@ namespace ProyectoGeolocalizacion.Controllers
         {
             ViewData["aliasExists"] = false;
             ViewData["channelExists"] = false;
+            bool aliasExists = false;
+            bool channelExists = false;
+
             if (alias != null)
             {
-                ViewData["aliasExists"] =await AliasExistsAsync(alias);
-                ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
+                aliasExists = await AliasExistsAsync(alias);
+                channelExists = await ChannelExistsAsync(canal, alias);
+                ViewData["aliasExists"] = aliasExists;
+                ViewData["channelExists"] =channelExists;
                 ViewData["alias"] = alias;
                 ViewData["channel"] = canal;
 
-                return View();
+                if (aliasExists)
+                {
+                    return View();
+                }
 
-                //return RedirectToAction("Index", "MapsHome", alias, canal);
-              
+                return RedirectToAction("Index", "MapsHome", new { alias = alias , canal = canal });
+
 
             }
             else
@@ -47,7 +55,7 @@ namespace ProyectoGeolocalizacion.Controllers
 
         }
 
-      
+
         //COMPROBAR ALIAS
         public async Task<bool> AliasExistsAsync(string alias)
         {
@@ -73,10 +81,10 @@ namespace ProyectoGeolocalizacion.Controllers
         }
 
         //COMPROBAR CANAL
-        public async Task<bool> ChannelExistsAsync(string canal,string alias)
+        public async Task<bool> ChannelExistsAsync(string canal, string alias)
         {
             var channel = await _context.Channel.FirstOrDefaultAsync(m => m.Name == canal);
-
+            var device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias);
             if (channel == null)
             {
 
@@ -90,7 +98,7 @@ namespace ProyectoGeolocalizacion.Controllers
                 ChannelDevice channelDevice = new ChannelDevice
                 {
                     Channel = newChannel,
-                    Device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias)
+                    Device = device
                 };
                 _context.Add(channelDevice);
 
@@ -101,14 +109,22 @@ namespace ProyectoGeolocalizacion.Controllers
             }
             else
             {
-                ChannelDevice channelDevice = new ChannelDevice
-                {
-                    Channel = channel,
-                    Device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias)
-                };
-                _context.Add(channelDevice);
 
-                await _context.SaveChangesAsync();
+                ChannelDevice cd = await _context.ChannelDevice.FirstOrDefaultAsync(x => x.ChannelId == channel.Id && x.DeviceId == device.Id);
+                if (cd == null)
+                {
+                    ChannelDevice channelDevice = new ChannelDevice
+                    {
+                        Channel = channel,
+                        Device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias)
+                    };
+                    _context.Add(channelDevice);
+
+                    await _context.SaveChangesAsync();
+
+                }
+
+
                 return true;
             }
         }

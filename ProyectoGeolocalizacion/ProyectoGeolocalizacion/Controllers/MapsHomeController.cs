@@ -8,10 +8,8 @@ namespace ProyectoGeolocalizacion.Controllers
 {
     public class MapsHomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string alias, string canal)
         {
-
-           
                 
             return View();
         }

@@ -15,5 +15,6 @@ namespace ProyectoGeolocalizacion.Data
         }
         public DbSet<ProyectoGeolocalizacion.Models.Device> Device { get; set; }
         public DbSet<ProyectoGeolocalizacion.Models.Channel> Channel { get; set; }
+        public DbSet<ProyectoGeolocalizacion.Models.ChannelDevice> ChannelDevice { get; set; }
     }
 }
