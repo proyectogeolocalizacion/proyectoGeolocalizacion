@@ -32,7 +32,9 @@ namespace ProyectoGeolocalizacion.Controllers
                 ViewData["channelExists"] = await ChannelExistsAsync(canal,alias);
                 ViewData["alias"] = alias;
                 ViewData["channel"] = canal;
-                return View();
+
+                return RedirectToAction("Index", "MapsHome");
+              
 
             }
             else
@@ -41,9 +43,9 @@ namespace ProyectoGeolocalizacion.Controllers
 
             }
 
-           
-
         }
+
+      
 
 
         //public async Task<IActionResult> Datos(string alias, string canal)
@@ -60,7 +62,7 @@ namespace ProyectoGeolocalizacion.Controllers
 
         //        return View();
 
-               
+
 
         //    }
         //    else
