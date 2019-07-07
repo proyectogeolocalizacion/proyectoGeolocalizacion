@@ -46,15 +46,38 @@ connection.on("ReceiveMessage", function (longitude, latitude) {
     //document.getElementById("messagesList").appendChild(li);
 });
 
+//mymap.locate({ setView: true, watch: false }) /* This will return map so you can do chaining */
+//    .on('locationfound', function (e) {
+//        //connection.invoke("SendMessage", e.longitude, e.latitude).catch(function (err) {
+//        //    return console.error(err.toString());
+//            document.getElementById("userInput").value =  e.longitude;
+//            document.getElementById("messageInput").value = e.latitude;
+            
+//        //})
+//    });
 
+var watchID = navigator.geolocation.watchPosition(function (position) {
+    document.getElementById("userInput").value = position.coords.longitude;
+    document.getElementById("messageInput").value = position.coords.latitude;
+    let alias = "lunes";
+    document.getElementById("alias").value = alias;
+    let canal = "semanas";
+    document.getElementById("canal").value = canal;
+    console.log(alias);
+    console.log(canal);
 
-document.getElementById("sendButton").addEventListener("click", function (event) {
-    var longitude = document.getElementById("userInput").value;
-    var latitude = document.getElementById("messageInput").value;
- 
-    connection.invoke("SendMessage", longitude, latitude).catch(function (err) {
+    connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
         return console.error(err.toString());
+    })
+});
 
+
+//document.getElementById("sendButton").addEventListener("click", function (event) {
+//    var longitude = document.getElementById("userInput").value;
+//    var latitude = document.getElementById("messageInput").value;
+ 
+//    connection.invoke("SendMessage", longitude, latitude,).catch(function (err) {
+//        return console.error(err.toString());
 
         //connection.invoke("SendMessage", longitude, latitude).catch(function (e) {
         //    var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
@@ -69,9 +92,9 @@ document.getElementById("sendButton").addEventListener("click", function (event)
         //    console.log(e.latitude);
         //})
 
-    });
-    event.preventDefault();
-});
+//    });
+//    event.preventDefault();
+//});
 
 
 
