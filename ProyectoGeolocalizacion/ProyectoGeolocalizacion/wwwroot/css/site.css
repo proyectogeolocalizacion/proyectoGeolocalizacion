@@ -59,7 +59,8 @@ body {
 
 #mapid {
     height: 490px;
-    width:90%;
+    width:70%;
+    border-radius: 8px;
 }
 .card-img-top {
     width: 100%;
@@ -88,7 +89,6 @@ body {
 .copyright-footer {
     color: rgba(30, 139, 195, 1);
 }
-
 
 
 
