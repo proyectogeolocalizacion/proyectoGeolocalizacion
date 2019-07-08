@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoGeolocalizacion.Data;
 
-namespace ProyectoGeolocalizacion.Data.Migrations
+namespace ProyectoGeolocalizacion.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -224,7 +224,13 @@ namespace ProyectoGeolocalizacion.Data.Migrations
 
                     b.Property<string>("Alias");
 
+                    b.Property<int?>("ChannelId");
+
+                    b.Property<string>("Status");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ChannelId");
 
                     b.ToTable("Device");
                 });
@@ -296,7 +302,7 @@ namespace ProyectoGeolocalizacion.Data.Migrations
             modelBuilder.Entity("ProyectoGeolocalizacion.Models.ChannelDevice", b =>
                 {
                     b.HasOne("ProyectoGeolocalizacion.Models.Channel", "Channel")
-                        .WithMany("ChannelDevices")
+                        .WithMany("ChannelDevcices")
                         .HasForeignKey("ChannelId")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -304,6 +310,13 @@ namespace ProyectoGeolocalizacion.Data.Migrations
                         .WithMany("ChannelDevices")
                         .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ProyectoGeolocalizacion.Models.Device", b =>
+                {
+                    b.HasOne("ProyectoGeolocalizacion.Models.Channel", "Channel")
+                        .WithMany()
+                        .HasForeignKey("ChannelId");
                 });
 
             modelBuilder.Entity("ProyectoGeolocalizacion.Models.Location", b =>

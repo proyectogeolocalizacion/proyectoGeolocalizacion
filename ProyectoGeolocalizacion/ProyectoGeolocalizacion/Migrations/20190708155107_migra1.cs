@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ProyectoGeolocalizacion.Data.Migrations
+namespace ProyectoGeolocalizacion.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class migra1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,19 @@ namespace ProyectoGeolocalizacion.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Channel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Channel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -153,6 +166,74 @@ namespace ProyectoGeolocalizacion.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Device",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Alias = table.Column<string>(nullable: true),
+                    Status = table.Column<string>(nullable: true),
+                    ChannelId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Device", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Device_Channel_ChannelId",
+                        column: x => x.ChannelId,
+                        principalTable: "Channel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChannelDevice",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    DeviceId = table.Column<int>(nullable: false),
+                    ChannelId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChannelDevice", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChannelDevice_Channel_ChannelId",
+                        column: x => x.ChannelId,
+                        principalTable: "Channel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChannelDevice_Device_DeviceId",
+                        column: x => x.DeviceId,
+                        principalTable: "Device",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Location",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Latitude = table.Column<double>(nullable: false),
+                    Longitude = table.Column<double>(nullable: false),
+                    DeviceId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Location", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Location_Device_DeviceId",
+                        column: x => x.DeviceId,
+                        principalTable: "Device",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +272,26 @@ namespace ProyectoGeolocalizacion.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChannelDevice_ChannelId",
+                table: "ChannelDevice",
+                column: "ChannelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChannelDevice_DeviceId",
+                table: "ChannelDevice",
+                column: "DeviceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Device_ChannelId",
+                table: "Device",
+                column: "ChannelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Location_DeviceId",
+                table: "Location",
+                column: "DeviceId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +312,22 @@ namespace ProyectoGeolocalizacion.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ChannelDevice");
+
+            migrationBuilder.DropTable(
+                name: "Location");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Device");
+
+            migrationBuilder.DropTable(
+                name: "Channel");
         }
     }
 }

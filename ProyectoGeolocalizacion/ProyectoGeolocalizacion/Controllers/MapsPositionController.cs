@@ -18,7 +18,23 @@ namespace ProyectoGeolocalizacion.Controllers
         }
         public async Task<IActionResult> Index(string alias, string canal)
         {
-            var devices = await _context.Device.ToListAsync();
+            var device = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
+            device.Status = "Online";
+           
+            _context.Update(device);
+            await _context.SaveChangesAsync();
+            var devices = await _context.Device.Where(x => x.Status == "Online").ToListAsync();
+            ViewData["alias"] = alias;
+            return View(devices);
+        }
+
+        public async Task<IActionResult> DeviceOff(string alias, string canal)
+        {
+            var device = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
+            device.Status = "Offline";
+            _context.Update(device);
+            await _context.SaveChangesAsync();
+            var devices = await _context.Device.Where(x => x.Status == "Online").ToListAsync();
             return View(devices);
         }
     }

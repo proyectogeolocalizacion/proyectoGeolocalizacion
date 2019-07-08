@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<ProyectoGeolocalizacion.Models.Device>
+
 @{
     ViewData["Title"] = "Maps Position";
+    string alias = (string)ViewData["alias"];
 }
 <h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
 <h2 class="text-center"> Dispositivos conectados a este canal</h2>
@@ -53,23 +55,33 @@
 <body>
 
     <div class="row">
-        <div class="col-8" id="mapid"></div>
+        <div class="col-7" id="mapid"></div>
         <table class="col-4 table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Alias</th>
                 </tr>
+                <tr></tr>
             </thead>
             <tbody>
                 @foreach (Device item in Model)
-    {
-                <tr>@item.Alias</tr>
-    }
+                {
+                    <tr>
+                        <th>
+
+                            <input checked type="checkbox" />
+                        </th>
+                        <th>@item.Alias</th>
+                    </tr>
+                    <tr>
+                    </tr>
+
+                }
             </tbody>
         </table>
+        <form >
+            <button type="submit" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+        </form>
     </div>
 
 
