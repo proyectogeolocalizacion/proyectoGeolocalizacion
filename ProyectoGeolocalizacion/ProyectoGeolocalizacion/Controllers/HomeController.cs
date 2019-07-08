@@ -34,7 +34,7 @@ namespace ProyectoGeolocalizacion.Controllers
                 aliasExists = await AliasExistsAsync(alias);
                 channelExists = await ChannelExistsAsync(canal, alias);
                 ViewData["aliasExists"] = aliasExists;
-                ViewData["channelExists"] = channelExists;
+                ViewData["channelExists"] =channelExists;
                 ViewData["alias"] = alias;
                 ViewData["channel"] = canal;
 
@@ -43,7 +43,8 @@ namespace ProyectoGeolocalizacion.Controllers
                     return View();
                 }
 
-                return RedirectToAction("Index", "MapsHome", new { alias = alias, canal = canal });
+                return RedirectToAction("Index", "MapsHome", new { alias = alias , canal = canal });
+
 
             }
             else
@@ -53,6 +54,7 @@ namespace ProyectoGeolocalizacion.Controllers
             }
 
         }
+
 
         //COMPROBAR ALIAS
         public async Task<bool> AliasExistsAsync(string alias)

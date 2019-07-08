@@ -25,7 +25,6 @@ namespace ProyectoGeolocalizacion.Controllers
             return View(await _context.Device.ToListAsync());
         }
 
-
         // GET: Devices/Details/5
         public async Task<IActionResult> Details(int? id)
         {
