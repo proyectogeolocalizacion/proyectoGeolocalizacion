@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoGeolocalizacion.Data;
 
-namespace ProyectoGeolocalizacion.Data.Migrations
+namespace ProyectoGeolocalizacion.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -224,6 +224,8 @@ namespace ProyectoGeolocalizacion.Data.Migrations
 
                     b.Property<string>("Alias");
 
+                    b.Property<string>("Status");
+
                     b.HasKey("Id");
 
                     b.ToTable("Device");
@@ -240,6 +242,8 @@ namespace ProyectoGeolocalizacion.Data.Migrations
                     b.Property<double>("Latitude");
 
                     b.Property<double>("Longitude");
+
+                    b.Property<DateTime>("Time");
 
                     b.HasKey("Id");
 

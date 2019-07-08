@@ -6,6 +6,11 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190708164429_localmodelos.cs" />
+    <Compile Remove="Migrations\20190708164429_localmodelos.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.1" />
@@ -15,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
     <Folder Include="Hubs\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
