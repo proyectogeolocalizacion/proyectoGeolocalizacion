@@ -48,9 +48,7 @@ namespace ProyectoGeolocalizacion.Controllers
 
             }
             else
-            {
-                aliasExists = await AliasExistsAsync(alias);
-                ViewData["aliasExists"] = aliasExists;
+            {              
                 return View();
             }
 
@@ -67,7 +65,7 @@ namespace ProyectoGeolocalizacion.Controllers
             else
             {
 
-            var device = await _context.Device.FirstOrDefaultAsync(m => m.Alias == alias);
+                var device = await _context.Device.FirstOrDefaultAsync(m => m.Alias == alias);
                 if (device == null)
                 {
 
