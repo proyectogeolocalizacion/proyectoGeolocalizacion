@@ -61,20 +61,13 @@ body {
 
 
 
-
-
-
-
-
-
-
 #mapid {
     height: 490px;
-    width: 75%;
+    width:75%;
+    border-radius: 10px;
+
    
 }
-
-
 
 .card-img-top {
     width: 100%;

@@ -22,8 +22,23 @@ namespace ProyectoGeolocalizacion.Controllers
         {
 
             var device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias);
-            ViewData["alias"] = alias;
+            ViewData["alias"]=alias;
             ViewData["channel"] = canal;
+
+
+            //navigator.geolocation.getCurrentPosition(function() {
+            //    var latitude = position.coords.latitude;
+            //    var longitude = position.coords.longitude;
+            //});
+            //var location = new Location()
+            //{
+            //    location.Longitude = longitude,
+            //    location.Latitude = latitude
+            //;
+
+            //device.Locations.Add(location);
+
+
             return View();
             //return RedirectToAction("Index", "MapsPosition", new { device = device, canal = canal, location = location });
         }

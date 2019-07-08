@@ -37,8 +37,9 @@ connection.on("ReceiveMessage", function (longitude, latitude) {
 
 var watchID = navigator.geolocation.watchPosition(function (position) {
     document.getElementById("userInput").value = position.coords.longitude;
-    document.getElementById("messageInput").value = position.coords.latitude; 
-    let alias = document.getElementById("alias").value;
+    document.getElementById("messageInput").value = position.coords.latitude;
+
+    let alias = document.getElementById("alias").value; 
     let canal = document.getElementById("canal").value;
     console.log(alias);
     console.log(canal);
@@ -46,7 +47,7 @@ var watchID = navigator.geolocation.watchPosition(function (position) {
     connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
         return console.error(err.toString());
     })
-    event.preventDefault();
+    //event.preventDefault();
 });
 
 

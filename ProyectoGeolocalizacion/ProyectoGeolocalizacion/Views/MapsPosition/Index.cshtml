@@ -1,11 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "Maps Position";
-    var canalElegido = ViewData["channel"];
-
 }
-
-<h1 class=" text-center"> Dispositivos conectados a este canal</h1>
+    <h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
+    <h2 class="text-center"> Dispositivos conectados a este canal</h2>
 
 @*<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -28,10 +26,10 @@
             <br />
             latitud...<input type="text" id="messageInput" />
             <br />
-            @*alias...<input type="text" id="alias" value="@ViewData["alias"]" />
+            alias...<input type="text" id="alias" value="@ViewData["alias"]"/>
             <br />
-            canal...<input type="text" id="canal" value="@ViewData["channel"]" />
-            <br />*@
+            canal...<input type="text" id="canal" value="@ViewData["channel"]"/>
+            <br />
             <input type="button" id="sendButton" value="Send Message" />
         </div>
     </div>
@@ -40,31 +38,22 @@
             <hr />
         </div>
     </div>
-</div>
+
+   
+        <div class="row">
+            <div class="col-6">&nbsp;</div>
+            <div class="col-6">
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
+    </div>
 
 
 
 <body>
 
-    <div class="row">
-        <div class="col-8" id="mapid"></div>
-        <div class="col-4">
 
-            @*@foreach (ChannelDevice X in canalElegido.ChannelDevices)
-            {
-
-            }*@
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                </label>
-            </div>
-
-        </div>
-
-    </div>
+    <div id="mapid"></div>
 
 
 </body>
@@ -76,3 +65,4 @@
             crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
     <script src="~/js/canal.js"></script>*@
+
