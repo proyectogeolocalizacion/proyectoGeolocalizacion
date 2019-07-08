@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
+    string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["channel"];
 }
 
 
@@ -9,13 +11,13 @@
 
     <p>@ViewData["channel"]</p>
 
- </div>
+</div>
 <div class="card-deck">
     <div class="card">
         <h3 class="card-title">Posición</h3>
         <img class="card-img-top" src="https://camo.githubusercontent.com/a0281bc5c0b55f8175fd3ed18c972b320c60e254/68747470733a2f2f7261772e6769746875622e636f6d2f6c766f6f6764742f4c6561666c65742e617765736f6d652d6d61726b6572732f6d61737465722f73637265656e73686f74732f73637265656e73686f742d736f66742e706e67" alt="Card image cap">
         <div class="card-body text-center">
-            <button type="button" class="btn btn-primary">Go!</button>
+            <a type="button" class="btn btn-primary" asp-area="" asp-controller="MapsPosition" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Acceder</a>
         </div>
     </div>
 
