@@ -38,17 +38,16 @@ connection.on("ReceiveMessage", function (longitude, latitude) {
 var watchID = navigator.geolocation.watchPosition(function (position) {
     document.getElementById("userInput").value = position.coords.longitude;
     document.getElementById("messageInput").value = position.coords.latitude;
-    let alias = "lunes";
-    document.getElementById("alias").value = alias;
-    let canal = "semanas";
-    document.getElementById("canal").value = canal;
+
+    let alias = document.getElementById("alias").value; 
+    let canal = document.getElementById("canal").value;
     console.log(alias);
     console.log(canal);
 
     connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
         return console.error(err.toString());
     })
-    event.preventDefault();
+    //event.preventDefault();
 });
 
 

@@ -22,6 +22,8 @@ namespace ProyectoGeolocalizacion.Controllers
         {
 
             var device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias);
+            ViewData["alias"]=alias;
+            ViewData["channel"] = canal;
 
 
             //navigator.geolocation.getCurrentPosition(function() {
