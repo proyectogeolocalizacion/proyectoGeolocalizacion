@@ -10,7 +10,7 @@ namespace ProyectoGeolocalizacion.Models
     public class Device
     {
         public int Id { get; set; }
-        [Required]
+        
         public string Alias { get; set; }
 
         public List<Location> Locations { get; set; }
