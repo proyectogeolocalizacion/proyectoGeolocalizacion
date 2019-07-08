@@ -44,7 +44,6 @@ namespace ProyectoGeolocalizacion
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.AddSignalR();
             services.AddProgressiveWebApp();
         }
@@ -67,13 +66,12 @@ namespace ProyectoGeolocalizacion
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseAuthentication();
-
             app.UseSignalR(routes =>
             {
-                routes.MapHub<Mapa>("/Mapa");
+                routes.MapHub<Mapa>("/chatHub");
             });
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
