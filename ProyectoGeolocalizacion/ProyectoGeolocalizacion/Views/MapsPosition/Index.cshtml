@@ -2,8 +2,8 @@
 @{
     ViewData["Title"] = "Maps Position";
 }
-
-<h1 class=" text-center"> Dispositivos conectados a este canal</h1>
+    <h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
+    <h2 class="text-center"> Dispositivos conectados a este canal</h2>
 
 @*<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -11,11 +11,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />*@
 
-
-<div class="text-center">
-    <h1 class="display-4">The Finder</h1>
-
-</div>
 
 <title>Geolocation</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -31,9 +26,9 @@
             <br />
             latitud...<input type="text" id="messageInput" />
             <br />
-            alias...<input type="text" id="alias" />
+            alias...<input type="text" id="alias" value="@ViewData["alias"]"/>
             <br />
-            canal...<input type="text" id="canal" />
+            canal...<input type="text" id="canal" value="@ViewData["channel"]"/>
             <br />
             <input type="button" id="sendButton" value="Send Message" />
         </div>

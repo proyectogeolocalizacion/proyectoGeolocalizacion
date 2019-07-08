@@ -14,7 +14,6 @@ namespace ProyectoGeolocalizacion.Models
     {
         public int Id { get; set; }
 
-
         public int DeviceId { get; set; }
         public int ChannelId { get; set; }
 
