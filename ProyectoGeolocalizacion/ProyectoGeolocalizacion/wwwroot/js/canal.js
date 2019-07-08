@@ -28,33 +28,12 @@ let markerCluster = L.markerClusterGroup();
 connection.on("ReceiveMessage", function (longitude, latitude) {
     var marker = L.marker([latitude, longitude]).bindPopup('Your are here :)');
     markerCluster.addLayer(marker);
-    //var circle = L.circle([latitude, longitude],  {
-    //    weight: 1,
-    //    color: 'green',
-    //    fillColor: '#d620d3',
-    //    fillOpacity: 0.1
-    //});
+   
         mymap.addLayer(markerCluster);
         //mymap.addLayer(circle);
         console.log(latitude);
-     
     
-    //var msg = latitude.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    //var encodedMsg = "longitud: " + longitude + " ,latitud: " + latitude;
-    //var li = document.createElement("li");
-    //li.textContent = encodedMsg;
-    //document.getElementById("messagesList").appendChild(li);
 });
-
-//mymap.locate({ setView: true, watch: false }) /* This will return map so you can do chaining */
-//    .on('locationfound', function (e) {
-//        //connection.invoke("SendMessage", e.longitude, e.latitude).catch(function (err) {
-//        //    return console.error(err.toString());
-//            document.getElementById("userInput").value =  e.longitude;
-//            document.getElementById("messageInput").value = e.latitude;
-            
-//        //})
-//    });
 
 var watchID = navigator.geolocation.watchPosition(function (position) {
     document.getElementById("userInput").value = position.coords.longitude;
@@ -69,39 +48,8 @@ var watchID = navigator.geolocation.watchPosition(function (position) {
     connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
         return console.error(err.toString());
     })
+    event.preventDefault();
 });
-
-
-//document.getElementById("sendButton").addEventListener("click", function (event) {
-//    var longitude = document.getElementById("userInput").value;
-//    var latitude = document.getElementById("messageInput").value;
- 
-//    connection.invoke("SendMessage", longitude, latitude,).catch(function (err) {
-//        return console.error(err.toString());
-
-        //connection.invoke("SendMessage", longitude, latitude).catch(function (e) {
-        //    var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-        //    var circle = L.circle([e.latitude, e.longitude], e.accuracy / 2, {
-        //        weight: 1,
-        //        color: 'green',
-        //        fillColor: '#d620d3',
-        //        fillOpacity: 0.1
-        //    });
-        //    mymap.addLayer(marker);
-        //    mymap.addLayer(circle);
-        //    console.log(e.latitude);
-        //})
-
-//    });
-//    event.preventDefault();
-//});
-
-
-
-
-
-
-
 
 
 
