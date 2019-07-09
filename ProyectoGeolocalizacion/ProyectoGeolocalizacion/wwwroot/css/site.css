@@ -78,7 +78,7 @@ a.navbar-brand {
 }
 
 .page-caption {
-    padding-top: 60px;
+    padding-top: 50px;
     
 }
 
@@ -87,6 +87,4 @@ a.navbar-brand {
     line-height: 1;
     color: #fff;
     font-weight: 600;
-    margin-left: auto;
-    margin-right: auto;
 }
