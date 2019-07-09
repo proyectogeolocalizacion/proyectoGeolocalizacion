@@ -60,11 +60,6 @@ a.navbar-brand {
     perspective: 700px;
 }
 
-.card-flip, .card-container {
-    transform-style: preserve-3d;
-    transition: all 0.7s ease;
-}
-
 .foto {
     height: 200px;
 }
@@ -72,3 +67,26 @@ a.navbar-brand {
     .foto:hover {
         transform: scale(1.1);
     }
+
+/**************************PAGE HEADER*****/
+
+.page-header {
+    background: url(https://images.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)no-repeat;
+    background-size: cover;
+    color: white;
+    height: 200px;
+}
+
+.page-caption {
+    padding-top: 60px;
+    
+}
+
+.page-title {
+    font-size: 50px;
+    line-height: 1;
+    color: #fff;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: auto;
+}
