@@ -26,7 +26,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 let markerCluster = L.markerClusterGroup();
 
 connection.on("ReceiveMessage", function (longitude, latitude) {
-    var marker = L.marker([latitude, longitude]).bindPopup('Your are here :)');
+    var marker = L.marker([latitude, longitude]).bindPopup('Estás aquí :)');
     markerCluster.addLayer(marker);
    
         mymap.addLayer(markerCluster);
