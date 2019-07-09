@@ -11,7 +11,7 @@ namespace ProyectoGeolocalizacion.Models
 
         public string Name { get; set; }
 
-        public List <ChannelDevice> ChannelDevices { get; set; }
+        public List <ChannelDevice> ChannelDevcices { get; set; }
 
 
 
