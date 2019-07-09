@@ -37,6 +37,12 @@
     <Compile Remove="Data\Migrations\20190708153040_createIni2.Designer.cs" />
     <Compile Remove="Data\Migrations\20190708154748_migr1.cs" />
     <Compile Remove="Data\Migrations\20190708154748_migr1.Designer.cs" />
+    <Compile Remove="Migrations\20190708155107_migra1.cs" />
+    <Compile Remove="Migrations\20190708155107_migra1.Designer.cs" />
+    <Compile Remove="Migrations\20190709075937_migra2.cs" />
+    <Compile Remove="Migrations\20190709075937_migra2.Designer.cs" />
+    <Compile Remove="Migrations\20190709091218_migra3.cs" />
+    <Compile Remove="Migrations\20190709091218_migra3.Designer.cs" />
   </ItemGroup>
 
 

@@ -245,6 +245,8 @@ namespace ProyectoGeolocalizacion.Migrations
 
                     b.Property<double>("Longitude");
 
+                    b.Property<DateTime>("Time");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DeviceId");
