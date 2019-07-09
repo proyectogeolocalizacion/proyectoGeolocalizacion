@@ -40,8 +40,8 @@ var watchID = navigator.geolocation.watchPosition(function (position) {
     document.getElementById("messageInput").value = position.coords.latitude;
 
     let alias = document.getElementById("alias").value; 
-    let canal = document.getElementById("canal").value;
-    console.log(alias);
+    //let canal = document.getElementById("canal").value;
+    console.log(longitud);
     console.log(canal);
 
     connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
