@@ -1,16 +1,46 @@
-﻿﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
+
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    
-</div>
 
-﻿@{
-    ViewData["Title"] = "Home page";
-}
 
-<body>
-        <div id="mapid"></div>
-</body>
+@****************** LOGIN FINAL VERSION ***************************@
+
+
+        <div class="loginform">
+            <div class="row text-white">
+
+                        <form  asp-controller="Home" asp-action="Index" style="color: white">
+                            <div class="form-group">
+                                <h3>Encuentra tu familia y amigos</h3>
+
+                                <input id="alias" name="alias" type="text" class="form-control" placeholder="Alias">
+                            </div>
+                            <div class="form-group">
+
+                                <input id="canal" name="canal" type="text" class="form-control" placeholder="Canal">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index" asp-route-alias='@ViewData["alias"]' asp-route-canal=@ViewData["channel"]>okay, go!</button>
+                        </form>
+                    </div>
+                    <br>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

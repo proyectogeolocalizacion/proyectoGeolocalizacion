@@ -12,99 +12,75 @@ a.navbar-brand {
     height: 80px;
 }
 
-/*Sticky footer styles
--------------------------------------------------- 
-html {
-  font-size: 14px;
+
+
+#content-wrap {
+    margin-bottom: 100vh;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-
-
-
- Sticky footer styles
--------------------------------------------------- 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-   Margin bottom by footer height 
-  margin-bottom: 60px;
-}
-
-    */
-
-
-
-
-
-
-
-
 
 
 #mapid {
     height: 500px;
-   
+}
+
+.d{
+    margin-bottom: 200px;
 }
 
 
-
-.card-img-top {
+#background {
+    background-image: url('https://i0.wp.com/xyspy.com/wp-content/uploads/2019/05/Top-7-iPhone-Real-Time-Location-Tracking-Tools-and-Apps-1200x675.png');
     width: 100%;
-    height: 30vw; /*(Viewport Height units) for a more mobile-friendly experience.*/
-    object-fit: cover; /*object-fit: cover enables zoom instead of image stretching.*/
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
 }
 
-.card-title {
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
+
+.loginform{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 50px;
+    margin-top: 300px;
+
 }
 
-.btn btn-primary{
-    text-align: center;
+
+
+#container{
+    justify-content: flex-end;
 }
-/*************FOOTER***************/
-.page-footer {
-    text-align: center;
-    background: rgb(64, 179, 224);
+
+
+
+#copyright-footer {
     color: white;
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
-.copyright-footer {
-    color: rgba(30, 139, 195, 1);
+a{
+    color: white;
 }
 
 
-/*SOCİAL İCONS*/
+/************ SOCİAL İCONS ***************/
+.fab{
+    color: white;
+}
+
+.fab:hover {
+
+    opacity: 0.10;
+}
 
 
 
 
-/* footer social icons */
+
+
+
+
 
 

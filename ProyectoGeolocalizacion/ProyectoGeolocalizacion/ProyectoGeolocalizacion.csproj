@@ -16,7 +16,10 @@
   <ItemGroup>
     <Folder Include="Hubs\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="Views\Maps Home \" />
+    <Folder Include="Views\MapsHome\" />
+    <Folder Include="Views\MapsPosicion\" />
+    <Folder Include="Views\MapsCalor\" />
+    <Folder Include="Views\MapsRuta\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ProyectoGeolocalizacion\obj\ProyectoGeolocalizacion.csproj.nuget.cache" />
@@ -62,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images.cs" />
+    <Content Remove="Views\MapPosicion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\Downloads\Finder.jpg">
