@@ -10,7 +10,7 @@ using ProyectoGeolocalizacion.Data;
 namespace ProyectoGeolocalizacion.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190708155107_migra1")]
+    [Migration("20190709091437_migra1")]
     partial class migra1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -226,13 +226,11 @@ namespace ProyectoGeolocalizacion.Migrations
 
                     b.Property<string>("Alias");
 
-                    b.Property<int?>("ChannelId");
+                    b.Property<string>("Channel");
 
                     b.Property<string>("Status");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ChannelId");
 
                     b.ToTable("Device");
                 });
@@ -248,6 +246,8 @@ namespace ProyectoGeolocalizacion.Migrations
                     b.Property<double>("Latitude");
 
                     b.Property<double>("Longitude");
+
+                    b.Property<DateTime>("Time");
 
                     b.HasKey("Id");
 
@@ -312,13 +312,6 @@ namespace ProyectoGeolocalizacion.Migrations
                         .WithMany("ChannelDevices")
                         .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProyectoGeolocalizacion.Models.Device", b =>
-                {
-                    b.HasOne("ProyectoGeolocalizacion.Models.Channel", "Channel")
-                        .WithMany()
-                        .HasForeignKey("ChannelId");
                 });
 
             modelBuilder.Entity("ProyectoGeolocalizacion.Models.Location", b =>

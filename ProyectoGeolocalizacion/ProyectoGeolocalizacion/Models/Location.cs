@@ -16,6 +16,8 @@ namespace ProyectoGeolocalizacion.Models
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
+        public DateTime Time { get; set; }
+
         public Device Device { get; set; }
         public int DeviceId { get; set; }
         public DateTime Time { get; set; }

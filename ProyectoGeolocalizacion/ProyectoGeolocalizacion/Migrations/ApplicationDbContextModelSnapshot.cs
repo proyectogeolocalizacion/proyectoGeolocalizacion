@@ -224,13 +224,11 @@ namespace ProyectoGeolocalizacion.Migrations
 
                     b.Property<string>("Alias");
 
-                    b.Property<int?>("ChannelId");
+                    b.Property<string>("Channel");
 
                     b.Property<string>("Status");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ChannelId");
 
                     b.ToTable("Device");
                 });
@@ -246,6 +244,8 @@ namespace ProyectoGeolocalizacion.Migrations
                     b.Property<double>("Latitude");
 
                     b.Property<double>("Longitude");
+
+                    b.Property<DateTime>("Time");
 
                     b.HasKey("Id");
 
@@ -310,13 +310,6 @@ namespace ProyectoGeolocalizacion.Migrations
                         .WithMany("ChannelDevices")
                         .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ProyectoGeolocalizacion.Models.Device", b =>
-                {
-                    b.HasOne("ProyectoGeolocalizacion.Models.Channel", "Channel")
-                        .WithMany()
-                        .HasForeignKey("ChannelId");
                 });
 
             modelBuilder.Entity("ProyectoGeolocalizacion.Models.Location", b =>
