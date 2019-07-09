@@ -34,7 +34,21 @@ connection.on("ReceiveMessage", function (longitude, latitude) {
 
 });
 
-var watchID = navigator.geolocation.watchPosition(function (position) {
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
+
+function errorPosicion(error) {
+    console.log(error)
+}
+var longitudActual;
+var latitudActual;
+function recibirPosicion(position) {
+    console.log(position.coords.longitude);
+    console.log(position.coords.latitude);
     document.getElementById("userInput").value = position.coords.longitude;
     document.getElementById("messageInput").value = position.coords.latitude;
 
@@ -43,16 +57,16 @@ var watchID = navigator.geolocation.watchPosition(function (position) {
     console.log(alias);
     console.log(canal);
 
-    connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
-        return console.error(err.toString());
-    })
+    if (longitudActual !== position.coords.longitude || latitudActual !== position.coords.latitude) {
 
-});
+        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
+            return console.error(err.toString());
 
-
-
-
-
+        });
+        longitudActual = position.coords.longitude;
+        latitudActual = position.coords.latitude;
+    }
+}
 
 
 
