@@ -28,7 +28,7 @@ let markerCluster = L.markerClusterGroup();
 
 connection.on("ReceiveMessage", function (longitude, latitude) {
     var latlng = L.latlng(lat, lng)
-    var marker = L.marker([latlng]).bindPopup('Your are here :)');
+    var marker = L.marker([latlng]).bindPopup('Your are here :)'); 
     markerCluster.addLayer(marker);
 
         mymap.addLayer(marker);
