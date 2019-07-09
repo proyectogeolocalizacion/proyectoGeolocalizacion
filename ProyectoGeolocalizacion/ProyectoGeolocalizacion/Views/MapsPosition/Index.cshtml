@@ -79,8 +79,9 @@
                 }
             </tbody>
         </table>
-        <form >
-            <button type="submit" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+        <form asp-controller="MapsPosition" asp-action="DeviceOff">
+            <input name="alias" value="@alias" type="hidden" />
+            <button type="submit">Desconectar</button>
         </form>
     </div>
 

@@ -18,11 +18,15 @@ namespace ProyectoGeolocalizacion.Controllers
         }
         public async Task<IActionResult> Index(string alias, string canal)
         {
+            if(alias != null)
+            {
             var device = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
             device.Status = "Online";
-           
             _context.Update(device);
             await _context.SaveChangesAsync();
+            }
+
+           
             var devices = await _context.Device.Where(x => x.Status == "Online").ToListAsync();
             ViewData["alias"] = alias;
             return View(devices);
@@ -35,7 +39,7 @@ namespace ProyectoGeolocalizacion.Controllers
             _context.Update(device);
             await _context.SaveChangesAsync();
             var devices = await _context.Device.Where(x => x.Status == "Online").ToListAsync();
-            return View(devices);
+            return RedirectToAction("Index", "MapsPosition", devices);
         }
     }
 }
