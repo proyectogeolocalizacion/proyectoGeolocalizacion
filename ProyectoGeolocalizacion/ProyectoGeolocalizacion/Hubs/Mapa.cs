@@ -22,6 +22,8 @@ namespace ProyectoGeolocalizacion.Hubs
         public async Task SendMessage(double longitude, double latitude, string alias)
         {
 
+            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude);
+
             Location location = new Location();
             Device device = await _context.Device.FirstOrDefaultAsync(x=>x.Alias == alias);
             location.Device = device;
@@ -33,7 +35,6 @@ namespace ProyectoGeolocalizacion.Hubs
             await _context.SaveChangesAsync();
             var longitud = await _context.Location.Include(x => x.Longitude).FirstOrDefaultAsync();
             var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
-            await Clients.All.SendAsync("ReceiveMessage", longitud, latitud);
         }
 
     }

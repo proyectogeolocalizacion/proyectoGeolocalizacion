@@ -1,9 +1,10 @@
 ﻿
 @{
     ViewData["Title"] = "Maps Position";
+    string alias = (string)ViewData["alias"];
 }
-    <h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
-    <h2 class="text-center"> Dispositivos conectados a este canal</h2>
+<h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
+<h2 class="text-center"> Dispositivos conectados a este canal</h2>
 
 @*<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -26,9 +27,9 @@
             <br />
             latitud...<input type="text" id="messageInput" />
             <br />
-            @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]"/>
+            @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]" />
             <br />
-            @*canal...*@<input hidden type="text" id="canal" value="@ViewData["channel"]"/>
+            @*canal...*@<input hidden type="text" id="canal" value="@ViewData["channel"]" />
             <br />
             <input hidden type="button" id="sendButton" value="Send Message" />
         </div>
@@ -39,21 +40,52 @@
         </div>
     </div>
 
-   
-        <div class="row">
-            <div class="col-6">&nbsp;</div>
-            <div class="col-6">
-                <ul id="messagesList"></ul>
-            </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
         </div>
     </div>
+</div>
 
 
 
 <body>
 
+    <div class="row">
+        <div class="col-7" id="mapid"></div>
+        <div class="col-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Alias</th>
+                    </tr>
+                    <tr></tr>
+                </thead>
+                <tbody>
+                    @foreach (Device item in Model)
+                    {
+                        <tr>
+                            <th>
+                                <input checked type="checkbox" />
+                            </th>
+                            <th>@item.Alias</th>
+                        </tr>
+                        <tr></tr>
 
-    <div id="mapid"></div>
+                    }
+                </tbody>
+            </table>
+            <form>
+                <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
 
 
 </body>
