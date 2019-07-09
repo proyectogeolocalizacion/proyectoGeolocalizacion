@@ -28,7 +28,7 @@ connection.on("ReceiveMessage", function (longitude, latitude) {
     var marker = L.marker([latitude, longitude]).bindPopup('Your are here :)');
     markerCluster.addLayer(marker);
    
-        mymap.addLayer(markerCluster);
+        mymap.addLayer(marker);
         //mymap.addLayer(circle);
         console.log(latitude);
     

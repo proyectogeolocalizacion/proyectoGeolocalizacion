@@ -302,7 +302,7 @@ namespace ProyectoGeolocalizacion.Migrations
             modelBuilder.Entity("ProyectoGeolocalizacion.Models.ChannelDevice", b =>
                 {
                     b.HasOne("ProyectoGeolocalizacion.Models.Channel", "Channel")
-                        .WithMany("ChannelDevices")
+                        .WithMany("ChannelDevcices")
                         .HasForeignKey("ChannelId")
                         .OnDelete(DeleteBehavior.Cascade);
 

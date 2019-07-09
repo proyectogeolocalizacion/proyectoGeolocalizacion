@@ -15,49 +15,8 @@ a.navbar-brand {
     height: 80px;
 }
 
-/*Sticky footer styles
--------------------------------------------------- 
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
 
 
-
-
- Sticky footer styles
--------------------------------------------------- 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-   Margin bottom by footer height 
-  margin-bottom: 60px;
-}
-
-    */
 
 
 
@@ -65,14 +24,13 @@ body {
     height: 490px;
     width:75%;
     border-radius: 10px;
-
-   
 }
 
 .card-img-top {
     width: 100%;
-    height: 30vw; /*(Viewport Height units) for a more mobile-friendly experience.*/
-    object-fit: cover; /*object-fit: cover enables zoom instead of image stretching.*/
+    height: 30vw;
+    object-fit: cover; 
+    object-fit: cover ;
 }
 
 .card-title {
@@ -96,12 +54,21 @@ body {
     color: rgba(30, 139, 195, 1);
 }
 
+/***********CARDS***************/
 
-/*SOCİAL İCONS*/
+.card-container {
+    perspective: 700px;
+}
 
+.card-flip, .card-container {
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+}
 
+.foto {
+    height: 200px;
+}
 
-
-/* footer social icons */
-
-
+    .foto:hover {
+        transform: scale(1.1);
+    }
