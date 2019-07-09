@@ -26,28 +26,27 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 let markerCluster = L.markerClusterGroup();
 
 connection.on("ReceiveMessage", function (longitude, latitude) {
-    var marker = L.marker([latitude, longitude]).bindPopup('Estás aquí :)');
+    var marker = L.marker([latitude, longitude]).bindPopup('Your are here :)');
     markerCluster.addLayer(marker);
-   
-        mymap.addLayer(markerCluster);
-        //mymap.addLayer(circle);
-        console.log(latitude);
-    
+
+    mymap.addLayer(markerCluster);
+    console.log(latitude);
+
 });
 
 var watchID = navigator.geolocation.watchPosition(function (position) {
     document.getElementById("userInput").value = position.coords.longitude;
     document.getElementById("messageInput").value = position.coords.latitude;
 
-    let alias = document.getElementById("alias").value; 
-    //let canal = document.getElementById("canal").value;
-    console.log(longitud);
+    let alias = document.getElementById("alias").value;
+    let canal = document.getElementById("canal").value;
+    console.log(alias);
     console.log(canal);
 
     connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
         return console.error(err.toString());
     })
-    //event.preventDefault();
+
 });
 
 
