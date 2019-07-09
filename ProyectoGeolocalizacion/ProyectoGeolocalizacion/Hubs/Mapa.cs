@@ -29,6 +29,7 @@ namespace ProyectoGeolocalizacion.Hubs
             //location.DeviceId = 1;
             location.Latitude = latitude;
             location.Longitude = longitude;
+            location.Time = DateTime.Now;
             
             _context.Add(location);
             await _context.SaveChangesAsync();

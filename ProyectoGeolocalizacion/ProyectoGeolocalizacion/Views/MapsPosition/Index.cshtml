@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Maps Position";
     string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["canal"];
 }
-<h2 class="text-center"> Nombre del canal: @ViewData["canal"]</h2>
+<h2 class="text-center"> Nombre del canal: @canal</h2>
 <h2 class="text-center"> Dispositivos conectados a este canal</h2>
 
 <title>Geolocation</title>
@@ -13,9 +14,10 @@
 
 
 <div class="container">
+    <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-6">&nbsp;</div>
-        <div hidden class="col-6">
+        <div class="col-6">
             longitud..........<input type="text" id="userInput" />
             <br />
             latitud...<input type="text" id="messageInput" />
@@ -32,42 +34,53 @@
             <hr />
         </div>
     </div>
+
+
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
 </div>
 
 
 
+<body>
+
     <div class="row">
         <div class="col-7" id="mapid"></div>
-        <div class="col-4">
-            <table class="table table-striped">
-                <thead>
+        <table class="col-4 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Alias</th>
+                </tr>
+                <tr></tr>
+            </thead>
+            <tbody>
+                @foreach (Device item in Model)
+                {
                     <tr>
-                        <th scope="col">Alias</th>
+                        <th>
+
+                            <input checked type="checkbox" />
+                        </th>
+                        <th>@item.Alias</th>
                     </tr>
-                    <tr></tr>
-                </thead>
-                <tbody>
-                    @foreach (Device item in Model)
-                    {
-                        <tr>
-                            <th>
+                    <tr>
+                    </tr>
 
-                                <input checked type="checkbox" />
-                            </th>
-                            <th>@item.Alias</th>
-                        </tr>
-                        <tr></tr>
-
-                    }
-                </tbody>
-            </table>
-            <form>
-                <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
-            </form>
-        </div>
+                }
+            </tbody>
+        </table>
+        <form asp-controller="MapsPosition" asp-action="DeviceOff">
+            <input name="alias" value="@alias" type="hidden" />
+            <input name="canal" value="@canal" type="hidden" />
+            <button type="submit">Desconectar</button>
+        </form>
     </div>
 
 
-
+</body>
 
 
