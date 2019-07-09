@@ -18,7 +18,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     maxZoom: 20,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoibWlubmFoZWkiLCJhIjoiY2p4a2w5eDV1MjlrZzN6bno4YndzcGoycyJ9.t6dIk600zRcR4wHtWNZH_Q'
-}).addTo(mymap);
+}).addTo(mymap); 
+
 
 
 let markerCluster = L.markerClusterGroup();

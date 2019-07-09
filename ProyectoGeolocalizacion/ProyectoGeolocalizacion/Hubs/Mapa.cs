@@ -26,7 +26,7 @@ namespace ProyectoGeolocalizacion.Hubs
             Location location = new Location();
             Device device = await _context.Device.FirstOrDefaultAsync(x=>x.Alias == alias);
             location.Device = device;
-            location.DeviceId = 1;
+            //location.DeviceId = 1;
             location.Latitude = latitude;
             location.Longitude = longitude;
             
