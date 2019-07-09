@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "MapsRoutes";
+    string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["canal"];
+}
+
+
+<!-- page-header -->
+    
+        <div class="page-header">
+            <div class="row">
+                <div class="offset-1 page-caption">
+                    <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
+                    <h2 class="text-center"> Comprueba la(s) ruta(s) por donde has estado</h2>
+                </div>
+            </div>
+        </div>
+    
+<!-- /.page-header-->
+
+<title>Geolocation</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+
+<div hidden class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            @*longitud...*@<input hidden type="text" id="userInput" />
+            <br />
+            @*latitud...*@<input hidden type="text" id="messageInput" />
+            <br />
+            @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]" />
+            <br />
+            @*canal...*@<input hidden type="text" id="canal" value="@ViewData["channel"]" />
+            <br />
+            <input hidden type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+
+
+
+<body>
+
+    <div class="row">
+        <div class="col-7" id="mapid"></div>
+
+        <div class="col-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Alias</th>
+                    </tr>
+                    <tr></tr>
+                </thead>
+                <tbody>
+                    @foreach (Device item in Model)
+                    {
+                        <tr>
+                            <th>
+                                <input checked type="checkbox" />
+                            </th>
+                            <th>@item.Alias</th>
+                        </tr>
+                        <tr></tr>
+
+                    }
+                </tbody>
+            </table>
+            <form>
+                <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
