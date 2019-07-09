@@ -7,6 +7,7 @@ document.getElementById("sendButton").disabled = true;
 
 connection.start().then(function () {
     document.getElementById("sendButton").disabled = false;
+    geoloc();
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -26,32 +27,45 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 let markerCluster = L.markerClusterGroup();
 
 connection.on("ReceiveMessage", function (longitude, latitude) {
-    var marker = L.marker([latitude, longitude]).bindPopup('Your are here :)');
+    var latlng = L.latlng(lat, lng)
+    var marker = L.marker([latlng]).bindPopup('Your are here :)');
     markerCluster.addLayer(marker);
-   
-        mymap.addLayer(markerCluster);
+
+        mymap.addLayer(marker);
         //mymap.addLayer(circle);
-        console.log(latitude);
+
+    console.log(latitude);
+    console.log(longitude);
+    geoloc();
     
 });
 
-var watchID = navigator.geolocation.watchPosition(function (position) {
-    document.getElementById("userInput").value = position.coords.longitude;
-    document.getElementById("messageInput").value = position.coords.latitude;
 
-    let alias = document.getElementById("alias").value; 
-    let canal = document.getElementById("canal").value;
-    console.log(alias);
-    console.log(canal);
+function geoloc() {
+    var watchID = navigator.geolocation.getCurrentPosition(function (position) {
+        var lng = position.coords.longitude;
+        document.getElementById("userInput").value = position.coords.longitude;
+        var lat = position.coords.latitude;
+        document.getElementById("messageInput").value = position.coords.latitude;
 
-    connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
-        return console.error(err.toString());
-    })
-    //event.preventDefault();
-});
+        let alias = document.getElementById("alias").value;
+        let canal = document.getElementById("canal").value;
+        //console.log(position.coords.longitude);
+        console.log(alias);
 
 
+        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
+            return console.error(err.toString());
+        })
 
+        //event.preventDefault();
+    });
+}
+
+window.onunload = function () {
+    let desconectBtn = document.getElementById('dscnct');
+    desconectBtn.click();
+};
 
 
 
