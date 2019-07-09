@@ -15,14 +15,9 @@ a.navbar-brand {
     height: 80px;
 }
 
-
-
-
-
-
 #mapid {
     height: 490px;
-    width:75%;
+    width:80%;
     border-radius: 10px;
 }
 
@@ -69,6 +64,28 @@ a.navbar-brand {
     height: 200px;
 }
 
-    .foto:hover {
-        transform: scale(1.1);
-    }
+.foto:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+.page-header {
+    background-image: url('../images/nightworld.jpeg');
+    background-size: cover;
+    color: white;
+    height: 200px;
+    margin-bottom: 30px;
+}
+  
+.page-caption {
+    padding-top: 50px;
+}
+
+.page-title {
+    font-size: 50px;
+    line-height: 1;
+    color: #fff;
+    font-weight: 600;
+}

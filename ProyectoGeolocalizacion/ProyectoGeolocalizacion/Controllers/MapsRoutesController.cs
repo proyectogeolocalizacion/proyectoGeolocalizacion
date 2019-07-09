@@ -50,7 +50,7 @@ namespace ProyectoGeolocalizacion.Controllers
             }
 
             var devices = await _context.Device.Where(x => x.Status == "Online").Where(x => x.Channel == canal).ToListAsync();
-            return RedirectToAction("Index", "MapsPosition", devices);
+            return RedirectToAction("Index", "MapsRoutes", devices);
         }
     }
 }

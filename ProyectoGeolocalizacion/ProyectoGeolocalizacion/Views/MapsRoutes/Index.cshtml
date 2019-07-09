@@ -2,27 +2,35 @@
 @{
     ViewData["Title"] = "MapsRoutes";
     string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["canal"];
 }
-<h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
-<h2 class="text-center"> Comprueba la(s) ruta(s) por dónde has estado</h2>
 
 
-
-<h1>Index</h1>
+<!-- page-header -->
+    
+        <div class="page-header">
+            <div class="row">
+                <div class="offset-1 page-caption">
+                    <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
+                    <h2 class="text-center"> Comprueba la(s) ruta(s) por donde has estado</h2>
+                </div>
+            </div>
+        </div>
+    
+<!-- /.page-header-->
 
 <title>Geolocation</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 
-
-<div class="container">
+<div hidden class="container">
     <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-6">&nbsp;</div>
         <div class="col-6">
-            longitud..........<input type="text" id="userInput" />
+            @*longitud...*@<input hidden type="text" id="userInput" />
             <br />
-            latitud...<input type="text" id="messageInput" />
+            @*latitud...*@<input hidden type="text" id="messageInput" />
             <br />
             @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]" />
             <br />
@@ -51,6 +59,7 @@
 
     <div class="row">
         <div class="col-7" id="mapid"></div>
+
         <div class="col-4">
             <table class="table table-striped">
                 <thead>

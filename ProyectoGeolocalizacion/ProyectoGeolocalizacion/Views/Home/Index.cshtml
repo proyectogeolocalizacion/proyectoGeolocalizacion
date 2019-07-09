@@ -1,7 +1,6 @@
 ﻿﻿@{
     ViewData["Title"] = "Home Page";
 
-
 }
 
 <div class="row">
@@ -24,8 +23,6 @@
      @{bool deviceExists = (bool)ViewData["aliasExists"]; }
 
      @{bool channelExists = (bool)ViewData["channelExists"]; }
-
-
 
 
 @{
@@ -57,14 +54,12 @@ if (deviceExists)
 
 
 
+
 }
-    </div>
-
-
-
-
+</div>
 
 @section Scripts {
+
 
 
 @if (deviceExists)
@@ -73,6 +68,7 @@ if (deviceExists)
         $('#exampleModal').modal();
     </script>
 }
+
 
 
 }
