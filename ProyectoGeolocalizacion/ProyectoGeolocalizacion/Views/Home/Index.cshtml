@@ -9,27 +9,76 @@
 @****************** LOGIN FINAL VERSION ***************************@
 
 
-        <div class="loginform">
-            <div class="row text-white">
+<div class="loginform">
+    <div class="row text-white">
 
-                        <form  asp-controller="Home" asp-action="Index" style="color: white">
-                            <div class="form-group">
-                                <h3>Encuentra tu familia y amigos</h3>
+        <form asp-controller="Home" asp-action="Index" style="color: white">
+            <div class="form-group">
+                <h3>Encuentra tu familia y amigos</h3>
 
-                                <input id="alias" name="alias" type="text" class="form-control" placeholder="Alias">
-                            </div>
-                            <div class="form-group">
+                <input id="alias" name="alias" type="text" class="form-control" placeholder="Introduce el alias" value='@ViewData["alias"]'>
+            </div>
+            <div class="form-group">
 
-                                <input id="canal" name="canal" type="text" class="form-control" placeholder="Canal">
-                            </div>
+                <input id="canal" name="canal" type="text" class="form-control" placeholder="Introduce el canal">
+            </div>
 
-                            <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index" asp-route-alias='@ViewData["alias"]' asp-route-canal=@ViewData["channel"]>okay, go!</button>
-                        </form>
+            <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index" asp-route-alias=@ViewData["alias"] asp-route-canal=@ViewData["channel"]>okay, go!</button>
+        </form>
+    </div>
+    <br>
+
+
+</div>
+
+@{bool deviceExists = (bool)ViewData["aliasExists"]; }
+
+@{bool channelExists = (bool)ViewData["channelExists"]; }
+
+
+@{
+
+    if (deviceExists)
+    {
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Conflicto de alias</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <br>
+                    <div class="modal-body">
+                        <p>El campo alias no puede estar vacio.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
 
-
+                    </div>
                 </div>
+            </div>
+        </div>
+
+    }
+
+}
+   
+
+@section Scripts {
+
+
+    @if (deviceExists)
+    {
+        <script>
+        $('#exampleModal').modal();
+        </script>
+    }
+
+
+}
+
 
 
 
