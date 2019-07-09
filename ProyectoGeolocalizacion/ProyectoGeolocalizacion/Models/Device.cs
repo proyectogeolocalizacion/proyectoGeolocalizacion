@@ -14,8 +14,6 @@ namespace ProyectoGeolocalizacion.Models
         public string Alias { get; set; }
         public string Status { get; set; }
 
-        public string Status { get; set; }
-        public Channel Channel { get; set; }
         public List<Location> Locations { get; set; }
         public List<ChannelDevice> ChannelDevices { get; set; }
 

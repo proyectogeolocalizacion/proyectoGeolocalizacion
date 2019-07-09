@@ -96,7 +96,7 @@ body {
     color: rgba(30, 139, 195, 1);
 }
 
-//***********CARDS***************/
+/***********CARDS***************/
 .card-container {
     perspective: 700px;
     transform-style: preserve-3d;
