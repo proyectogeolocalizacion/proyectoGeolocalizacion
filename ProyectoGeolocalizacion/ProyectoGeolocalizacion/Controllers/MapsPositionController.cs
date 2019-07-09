@@ -18,27 +18,38 @@ namespace ProyectoGeolocalizacion.Controllers
         }
         public async Task<IActionResult> Index(string alias, string canal)
         {
-            if(alias != null)
+            if (alias != null)
             {
-            var device = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
-            device.Status = "Online";
-            _context.Update(device);
-            await _context.SaveChangesAsync();
+                var device = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
+                device.Status = "Online";
+                device.Channel = canal;
+                _context.Update(device);
+                await _context.SaveChangesAsync();
             }
 
-           
-            var devices = await _context.Device.Where(x => x.Status == "Online").ToListAsync();
+
+            var devices = await _context.Device.Where(x => x.Status == "Online").Where(x => x.Channel == canal).ToListAsync();
             ViewData["alias"] = alias;
+            ViewData["canal"] = canal;
             return View(devices);
         }
 
         public async Task<IActionResult> DeviceOff(string alias, string canal)
         {
-            var device = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
-            device.Status = "Offline";
-            _context.Update(device);
-            await _context.SaveChangesAsync();
-            var devices = await _context.Device.Where(x => x.Status == "Online").ToListAsync();
+            if (alias != null)
+            {
+                var device = await _context.Device.Where(x => x.Alias == alias).Where(x => x.Channel == canal).FirstOrDefaultAsync();
+                if (device.Status == "Online")
+                {
+                    device.Status = "Offline";
+                    device.Channel = null;
+                    _context.Update(device);
+                    await _context.SaveChangesAsync();
+
+                }
+            }
+
+            var devices = await _context.Device.Where(x => x.Status == "Online").Where(x => x.Channel == canal).ToListAsync();
             return RedirectToAction("Index", "MapsPosition", devices);
         }
     }

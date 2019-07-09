@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Maps Position";
     string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["canal"];
 }
 <h2 class="text-center"> Nombre del canal: @ViewData["channel"]</h2>
 <h2 class="text-center"> Dispositivos conectados a este canal</h2>
@@ -81,6 +82,7 @@
         </table>
         <form asp-controller="MapsPosition" asp-action="DeviceOff">
             <input name="alias" value="@alias" type="hidden" />
+            <input name="canal" value="@canal" type="hidden" />
             <button type="submit">Desconectar</button>
         </form>
     </div>
