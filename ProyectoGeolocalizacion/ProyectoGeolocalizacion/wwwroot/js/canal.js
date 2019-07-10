@@ -7,7 +7,6 @@ document.getElementById("sendButton").disabled = true;
 
 connection.start().then(function () {
     document.getElementById("sendButton").disabled = false;
-    geoloc();
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -27,61 +26,65 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 let markerCluster = L.markerClusterGroup();
 
 connection.on("ReceiveMessage", function (longitude, latitude) {
-    var latlng = L.latLng(latitude, longitude)
-    var marker = L.marker([latlng]).bindPopup('Your are here :)'); 
-    markerCluster.addLayer(marker);
-        
-        mymap.addLayer(marker);
-        //mymap.addLayer(circle);
+    var marker = L.marker([latitude, longitude]).bindPopup('You are here :)');
+    //markerCluster.addLayer(marker);
 
+    mymap.addLayer(marker);
     console.log(latitude);
-    console.log(longitude);
-    geoloc();
-    
+
 });
 
-connection.on("ConnectedFriends", function (dev) {
-    var device = {
-        Id: dev.Id,
-        Alias: dev.Alias,
-        Status: dev.Status,
-        Channel: dev.Channel
-    }
-})
+//PRUEBA SI NO BORRAR
+//var marker;
+//function update_pos() {
+//    if (navigator.geolocation) {
+//        navigator.geolocation.watchPosition(function (position) {
+//            var latitude = position.coords.latitude;
+//            var longitude = position.coords.longitude;
+//        })
+//    }
+//    if (!marker) {
+//        marker = L.marker([latitude, longitude]).bindPopup('You are here :)').addTo(mymap);
+//    }
+//    marker.setLatLng([latitude, longitude]).update();
+//    setTimeout(update_pos, 3000);
+//}
+//FINPRUEBA
 
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
 
-function geoloc() {
-    var watchID = navigator.geolocation.getCurrentPosition(function (position) {
-        var lng = position.coords.longitude;
-        document.getElementById("userInput").value = position.coords.longitude;
-        var lat = position.coords.latitude;
-        document.getElementById("messageInput").value = position.coords.latitude;
+function errorPosicion(error) {
+    console.log(error)
+}
+var longitudActual;
+var latitudActual;
 
-        let alias = document.getElementById("alias").value;
-        let canal = document.getElementById("canal").value;
-        //console.log(position.coords.longitude);
-        console.log(alias);
+function recibirPosicion(position) {
+    console.log(position.coords.longitude);
+    console.log(position.coords.latitude);
+    document.getElementById("userInput").value = position.coords.longitude;
+    document.getElementById("messageInput").value = position.coords.latitude;
 
+    let alias = document.getElementById("alias").value;
+    let canal = document.getElementById("canal").value;
+    console.log(alias);
+    console.log(canal);
+
+    if (longitudActual !== position.coords.longitude || latitudActual !== position.coords.latitude) {
 
         connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
             return console.error(err.toString());
-        })
 
-        //event.preventDefault();
-    });
+        });
+        longitudActual = position.coords.longitude;
+        latitudActual = position.coords.latitude;
+    }
 }
-
-window.onbeforeunload = function () {
-    let desconectBtn = document.getElementById('dscnct');
-    desconectBtn.click();
-};
-
-//function showMarker() {
-//    var check = document.getElementById("checkbox");
-//    if (check.checked) {
-//        marker.style.display=
-//    }
-//}
 
 
 

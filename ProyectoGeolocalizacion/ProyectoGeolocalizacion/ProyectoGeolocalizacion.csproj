@@ -7,42 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
-    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190702142033_Geo.cs" />
-    <Compile Remove="Data\Migrations\20190702142033_Geo.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190703073021_modelos1.cs" />
-    <Compile Remove="Data\Migrations\20190703073021_modelos1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190703085313_modelschange.cs" />
-    <Compile Remove="Data\Migrations\20190703085313_modelschange.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190703091046_InitialCreate.cs" />
-    <Compile Remove="Data\Migrations\20190703091046_InitialCreate.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190703101510_InitialCreateMaps.cs" />
-    <Compile Remove="Data\Migrations\20190703101510_InitialCreateMaps.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190703135256_modelos2.cs" />
-    <Compile Remove="Data\Migrations\20190703135256_modelos2.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708143554_initialCreation.cs" />
-    <Compile Remove="Data\Migrations\20190708143554_initialCreation.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708143718_initialCreation22.cs" />
-    <Compile Remove="Data\Migrations\20190708143718_initialCreation22.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708143907_initialCreation222.cs" />
-    <Compile Remove="Data\Migrations\20190708143907_initialCreation222.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708144143_mig1.cs" />
-    <Compile Remove="Data\Migrations\20190708144143_mig1.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708145152_mig11.cs" />
-    <Compile Remove="Data\Migrations\20190708145152_mig11.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708150730_createIni.cs" />
-    <Compile Remove="Data\Migrations\20190708150730_createIni.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708153040_createIni2.cs" />
-    <Compile Remove="Data\Migrations\20190708153040_createIni2.Designer.cs" />
-    <Compile Remove="Data\Migrations\20190708154748_migr1.cs" />
-    <Compile Remove="Data\Migrations\20190708154748_migr1.Designer.cs" />
-    <Compile Remove="Migrations\20190708155107_migra1.cs" />
-    <Compile Remove="Migrations\20190708155107_migra1.Designer.cs" />
-    <Compile Remove="Migrations\20190709075937_migra2.cs" />
-    <Compile Remove="Migrations\20190709075937_migra2.Designer.cs" />
-    <Compile Remove="Migrations\20190709091218_migra3.cs" />
-    <Compile Remove="Migrations\20190709091218_migra3.Designer.cs" />
+    <Compile Remove="Migrations\20190708164429_localmodelos.cs" />
+    <Compile Remove="Migrations\20190708164429_localmodelos.Designer.cs" />
   </ItemGroup>
 
 

@@ -13,8 +13,11 @@
 
 
 </div>
+<div class="row">
+    <div class="offset-1"> <h4>Selecciona el mapa que quieres visualizar:</h4></div>
+   
+</div>
 
-<h4>Selecciona el mapa que quieres visualizar:</h4>
 <div class="row">
     <div class="card-container col-md-4 mt-4">
         <div class="card mb-4 border-dark">
@@ -28,23 +31,21 @@
     </div>
     <div class="card-container col-md-4 mt-4">
         <div class="card mb-4 border-dark">
-
-            <img class="card-img-top foto zoom" src="https://assets.dmagstatic.com/wp-content/uploads/2019/05/dallas_mayor_2019_early_voting-heatmap.jpg" alt="Card image cap">
+            <img class="card-img-top foto zoom" src="https://user-images.githubusercontent.com/11360512/38074134-8cb8495a-334f-11e8-94e1-8738337ba16f.png" alt="Card image cap">
             <div class="card-body text-center">
-                <h4 class="card-title">Calor</h4>
-                <p>¿Por dónde han estado? Mapa que muestra los movimientos de los dispositivos.</p>
-                <button type="button" class="btn btn-dark btn-sm">Acceder</button>
+                <h4 class="card-title">Ruta</h4>
+                <p>Obtén las rutas de los dispositivos del canal.</p>
+                <a type="button" class="btn btn-dark btn-sm" asp-area="" asp-controller="MapsRoutes" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Acceder</a>
             </div>
         </div>
     </div>
     <div class="card-container col-md-4 mt-4">
         <div class="card mb-4 border-dark">
-
-            <img class="card-img-top foto zoom" src="https://user-images.githubusercontent.com/11360512/38074134-8cb8495a-334f-11e8-94e1-8738337ba16f.png" alt="Card image cap">
+            <img class="card-img-top foto zoom" src="https://assets.dmagstatic.com/wp-content/uploads/2019/05/dallas_mayor_2019_early_voting-heatmap.jpg" alt="Card image cap">
             <div class="card-body text-center">
-                <h4 class="card-title">Ruta</h4>
-                <p>Obtén las rutas de los dispositivos del canal.</p>
-                <button type="button" class="btn btn-dark btn-sm">Acceder</button>
+                <h4 class="card-title">Calor</h4>
+                <p>¿Por dónde han estado? Mapa que muestra los movimientos de los dispositivos.</p>
+                <a type="button" class="btn btn-dark btn-sm" asp-area="" asp-controller="HeatMap" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Acceder</a>
             </div>
         </div>
     </div>

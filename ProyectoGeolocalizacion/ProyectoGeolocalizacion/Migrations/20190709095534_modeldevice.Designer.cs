@@ -10,8 +10,8 @@ using ProyectoGeolocalizacion.Data;
 namespace ProyectoGeolocalizacion.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190709091437_migra1")]
-    partial class migra1
+    [Migration("20190709095534_modeldevice")]
+    partial class modeldevice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -304,7 +304,7 @@ namespace ProyectoGeolocalizacion.Migrations
             modelBuilder.Entity("ProyectoGeolocalizacion.Models.ChannelDevice", b =>
                 {
                     b.HasOne("ProyectoGeolocalizacion.Models.Channel", "Channel")
-                        .WithMany("ChannelDevcices")
+                        .WithMany("ChannelDevices")
                         .HasForeignKey("ChannelId")
                         .OnDelete(DeleteBehavior.Cascade);
 

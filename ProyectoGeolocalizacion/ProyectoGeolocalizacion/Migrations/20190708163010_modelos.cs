@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProyectoGeolocalizacion.Migrations
 {
-    public partial class migra1 : Migration
+    public partial class modelos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -67,8 +67,7 @@ namespace ProyectoGeolocalizacion.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Alias = table.Column<string>(nullable: true),
-                    Status = table.Column<string>(nullable: true),
-                    Channel = table.Column<string>(nullable: true)
+                    Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -215,8 +214,8 @@ namespace ProyectoGeolocalizacion.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Latitude = table.Column<double>(nullable: false),
                     Longitude = table.Column<double>(nullable: false),
-                    Time = table.Column<DateTime>(nullable: false),
-                    DeviceId = table.Column<int>(nullable: false)
+                    DeviceId = table.Column<int>(nullable: false),
+                    Time = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
