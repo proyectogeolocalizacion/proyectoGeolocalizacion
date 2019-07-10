@@ -8,11 +8,11 @@ using ProyectoGeolocalizacion.Data;
 
 namespace ProyectoGeolocalizacion.Controllers
 {
-    public class MapsCalorController : Controller
+    public class HeatMapController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public MapsCalorController(ApplicationDbContext context)
+        public HeatMapController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -50,7 +50,7 @@ namespace ProyectoGeolocalizacion.Controllers
             }
 
             var devices = await _context.Device.Where(x => x.Status == "Online").Where(x => x.Channel == canal).ToListAsync();
-            return RedirectToAction("Index", "MapsCalor", devices);
+            return RedirectToAction("Index", "HeatMap", devices);
         }
     }
 }
