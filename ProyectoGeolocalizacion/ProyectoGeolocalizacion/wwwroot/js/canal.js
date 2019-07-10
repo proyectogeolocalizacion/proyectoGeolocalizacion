@@ -52,6 +52,7 @@ function errorPosicion(error) {
 var longitudActual;
 var latitudActual;
 
+
 function recibirPosicion(position) {
     console.log(position.coords.longitude);
     console.log(position.coords.latitude);
@@ -88,16 +89,20 @@ var casillas = tabla.getElementsByTagName('input');
 
 for (var i = 0, len = casillas.length; i < len; i++) {
     if (casillas[i].type === 'checkbox') {
-        casillas[i].onclick = function () {
-            if (casillas.checked = false) {
 
-                map.removeLayer(marker[i]);
+
+
+        casillas[i].onclick = function () {
+            if (casillas[i].checked = false) {
+
+                mymap.removeLayer(marker[i]);
 
             } else {
 
-                map.AddLayer(marker[i]);
+                mymap.addLayer(marker[i]);
 
             }
         };
 
     }
+}
