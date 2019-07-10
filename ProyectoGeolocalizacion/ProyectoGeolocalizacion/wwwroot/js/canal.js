@@ -27,10 +27,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 let markerCluster = L.markerClusterGroup();
 
 connection.on("ReceiveMessage", function (longitude, latitude) {
-    var latlng = L.latlng(lat, lng)
+    var latlng = L.latLng(latitude, longitude)
     var marker = L.marker([latlng]).bindPopup('Your are here :)'); 
     markerCluster.addLayer(marker);
-
+        
         mymap.addLayer(marker);
         //mymap.addLayer(circle);
 
@@ -39,6 +39,15 @@ connection.on("ReceiveMessage", function (longitude, latitude) {
     geoloc();
     
 });
+
+connection.on("ConnectedFriends", function (dev) {
+    var device = {
+        Id: dev.Id,
+        Alias: dev.Alias,
+        Status: dev.Status,
+        Channel: dev.Channel
+    }
+})
 
 
 function geoloc() {
@@ -62,12 +71,17 @@ function geoloc() {
     });
 }
 
-window.onunload = function () {
+window.onbeforeunload = function () {
     let desconectBtn = document.getElementById('dscnct');
     desconectBtn.click();
 };
 
-
+//function showMarker() {
+//    var check = document.getElementById("checkbox");
+//    if (check.checked) {
+//        marker.style.display=
+//    }
+//}
 
 
 

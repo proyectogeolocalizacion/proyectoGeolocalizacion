@@ -37,6 +37,11 @@ namespace ProyectoGeolocalizacion.Hubs
             //var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
         }
 
+        public async Task NewConnection(string alias)
+        {
+            Device dev = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
+            await Clients.All.SendAsync("ConnectedFriends", dev);
+        }
     }
 
     
