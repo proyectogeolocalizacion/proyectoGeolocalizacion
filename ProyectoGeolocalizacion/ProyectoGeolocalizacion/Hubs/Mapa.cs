@@ -22,7 +22,7 @@ namespace ProyectoGeolocalizacion.Hubs
         public async Task SendMessage(double longitude, double latitude, string alias)
         {
 
-            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude);
+            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude, alias);
             Location location = new Location();
             Device device = await _context.Device.FirstOrDefaultAsync(x=>x.Alias == alias);
             location.Device = device;

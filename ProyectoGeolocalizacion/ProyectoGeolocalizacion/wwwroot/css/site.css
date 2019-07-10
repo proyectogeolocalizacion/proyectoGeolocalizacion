@@ -1,18 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-
-/**********IMAGEN DE FONDO********/
-#page-container {
-    background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png');
-    min-height: 100vh;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
 /**********************************************/
 
 .p {
@@ -85,23 +73,6 @@ a{
 }
 
 
-.card-img-top {
-    width: 100%;
-    height: 30vw;
-    object-fit: cover;
-    object-fit: cover;
-}
-
-.card-title {
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-.btn btn-primary {
-    text-align: center;
-
-
-}
 /*************FOOTER***************/
 .page-footer {
     text-align: center;
@@ -117,6 +88,21 @@ a{
 
 /***********CARDS***************/
 
+.card-img-top {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-fit: cover;
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn btn-primary {
+    text-align: center;
+}
 .card-container {
     perspective: 700px;
 }
