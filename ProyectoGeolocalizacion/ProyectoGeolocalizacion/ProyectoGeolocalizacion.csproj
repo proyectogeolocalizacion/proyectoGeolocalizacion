@@ -23,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
     <Folder Include="Hubs\" />
-    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ProyectoGeolocalizacion\obj\ProyectoGeolocalizacion.csproj.nuget.cache" />
