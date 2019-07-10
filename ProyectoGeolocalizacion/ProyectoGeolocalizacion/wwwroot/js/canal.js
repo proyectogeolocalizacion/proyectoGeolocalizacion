@@ -86,7 +86,7 @@ var tabla = document.getElementById("tabla");
 var casillas = tabla.getElementsByTagName('input');
 
 
-for (var i = 0, len = casillas.length; i < casillas; i++) {
+for (var i = 0, len = casillas.length; i < len; i++) {
     if (casillas[i].type === 'checkbox') {
         casillas[i].onclick = function () {
             if (casillas.checked = false) {
@@ -100,14 +100,4 @@ for (var i = 0, len = casillas.length; i < casillas; i++) {
             }
         };
 
-
-
-
-
-
     }
-
-
-
-
-
