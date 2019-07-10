@@ -1,35 +1,35 @@
 ﻿
 @{
     ViewData["Title"] = "Home Page";
-
 }
 
 
 
 @****************** LOGIN FINAL VERSION ***************************@
 
+<div id="page-container" style="background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png'); min-height: 100vh; position: relative; height: 100%; width: 100%; background-repeat: no-repeat; background-size: cover;">
+<div class="loginform" style="display: flex; justify-content: flex-end; align-items: flex-end; margin-right: 50px;  margin-top: 250px;">
+    <div class="row text-white" style="margin-top: 250px;">
 
-        <div class="loginform">
-            <div class="row text-white">
+        <form asp-controller="Home" asp-action="Index" style="color: white">
+            <div class="form-group">
+                <h3>Encuentra tu familia y amigos</h3>
 
-                        <form  asp-controller="Home" asp-action="Index" style="color: white">
-                            <div class="form-group">
-                                <h3>Encuentra tu familia y amigos</h3>
+                <input id="alias" name="alias" type="text" class="form-control" placeholder="Alias">
+            </div>
+            <div class="form-group">
 
-                                <input id="alias" name="alias" type="text" class="form-control" placeholder="Alias">
-                            </div>
-                            <div class="form-group">
+                <input id="canal" name="canal" type="text" class="form-control" placeholder="Canal">
+            </div>
 
-                                <input id="canal" name="canal" type="text" class="form-control" placeholder="Canal">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index" asp-route-alias='@ViewData["alias"]' asp-route-canal=@ViewData["channel"]>okay, go!</button>
-                        </form>
-                    </div>
-                    <br>
+            <button type="submit" class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index" asp-route-alias='@ViewData["alias"]' asp-route-canal=@ViewData["channel"]>okay, go!</button>
+        </form>
+    </div>
+    <br>
 
 
-                </div>
+</div>
+</div>
 
 
 

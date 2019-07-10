@@ -2,7 +2,7 @@
 @model IEnumerable<ProyectoGeolocalizacion.Models.Device>
 
 @{
-    ViewData["Title"] = "Maps Position";
+    ViewData["Title"] = "MapsCalor";
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
 }
@@ -19,15 +19,15 @@
     <div class="row">
         <div class="col-6">&nbsp;</div>
         <div class="col-6">
-            longitud..........<input type="text" id="userInput" />
+            @*longitud...*@<input type="text" id="userInput" />
             <br />
-            latitud...<input type="text" id="messageInput" />
+            @*latitud...*@<input hidden type="text" id="messageInput" />
             <br />
-            alias...<input type="text" id="alias" value="@ViewData["alias"]" />
+            @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]" />
             <br />
-            canal...<input type="text" id="canal" value="@ViewData["channel"]" />
+            @*canal...*@<input hidden type="text" id="canal" value="@ViewData["channel"]" />
             <br />
-            <input type="button" id="sendButton" value="Send Message" />
+            <input hidden type="button" id="sendButton" value="Send Message" />
         </div>
     </div>
     <div class="row">
@@ -73,7 +73,7 @@
                 }
             </tbody>
         </table>
-        <form asp-controller="MapsPosition" asp-action="DeviceOff">
+        <form asp-controller="MapsCalor" asp-action="DeviceOff">
             <input name="alias" value="@alias" type="hidden" />
             <input name="canal" value="@canal" type="hidden" />
             <button type="submit">Desconectar</button>

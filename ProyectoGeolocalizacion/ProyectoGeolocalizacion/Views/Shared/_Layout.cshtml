@@ -26,12 +26,12 @@
 
 
 <body>
-    <div id="page-container" style="background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png');min-height: 100vh; position:relative; height:100%; width: 100%; background-repeat:no-repeat; background-size:cover;">
-        <div class="content-wrap">
+
+       
 
             <header>
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                    <div class="container">
+
 
                         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" id="logo">
                             <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfy7O5MvlskHowPTCOJNxwQUYoD5lLz-2qHME3U4TB0oTX8hsGlA" alt="logo" height="80px" width="80px" />THE FINDER
@@ -51,18 +51,18 @@
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                                 </li>
                             </ul>*@
-                    </div>
+
 
                 </nav>
             </header>
-            <div class="container-layout">
+            <div id="maincontainer" class="container-fluid" style="margin-top: -250px; margin-bottom: -20px; margin-left: -1px; margin-right: -19px; padding: 0px; !important" >
                 <partial name="_CookieConsentPartial" />
                 <main role="main" class="pb-3">
                     @RenderBody()
                 </main>
             </div>
-        </div>
-    </div>
+        
+
 
 
     <!------------ FOOTER ------------>

@@ -10,8 +10,18 @@ a.navbar-brand {
 #logo {
     font-family: 'Cantarell', sans-serif;
     height: 80px;
+  
 }
 
+#page-container {
+    background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png');
+    min-height: 100vh;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 #content-wrap {
@@ -44,7 +54,7 @@ a.navbar-brand {
     justify-content: flex-end;
     align-items: flex-end;
     margin-right: 50px;
-    margin-top: 300px;
+    margin-top: 250px;
 
 }
 
@@ -76,7 +86,9 @@ a{
 }
 
 
-
+#maincontainer {
+    margin-top: -250px !important;
+}
 
 
 
