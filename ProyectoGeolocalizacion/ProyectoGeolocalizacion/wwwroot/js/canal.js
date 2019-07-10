@@ -94,7 +94,7 @@ function recibirPosicion(position) {
 }
 
 window.onbeforeunload = function () {
-    let desconectBtn = document.getElementById('dscnct');
+    let desconectBtn = document.getElementById('dscnct'); 
     desconectBtn.click();
 };
 
