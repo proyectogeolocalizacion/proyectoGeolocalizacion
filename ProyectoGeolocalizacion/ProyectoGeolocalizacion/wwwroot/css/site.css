@@ -7,6 +7,10 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-bottom: 80px;
 }
 
+.navbar-brand {
+    font-size: 36px;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -15,7 +19,7 @@ a.navbar-brand {
 
 #logo {
     font-family: 'Cantarell', sans-serif;
-    height: 80px;
+    height: 90px;
 }
 
 
