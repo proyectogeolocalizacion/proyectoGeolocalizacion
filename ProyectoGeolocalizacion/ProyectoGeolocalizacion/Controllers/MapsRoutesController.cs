@@ -54,3 +54,19 @@ namespace ProyectoGeolocalizacion.Controllers
         }
     }
 }
+
+//public async Task<IActionResult> ShowRoute(string alias, string canal)
+//{
+
+
+//}
+
+
+
+
+
+
+
+
+
+

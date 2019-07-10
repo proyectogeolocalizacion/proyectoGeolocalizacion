@@ -24,6 +24,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 let markerCluster = L.markerClusterGroup();
+
 var marker = {};
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias) {
@@ -41,22 +42,6 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias) {
 
 });
 
-//PRUEBA SI NO BORRAR
-//var marker;
-//function update_pos() {
-//    if (navigator.geolocation) {
-//        navigator.geolocation.watchPosition(function (position) {
-//            var latitude = position.coords.latitude;
-//            var longitude = position.coords.longitude;
-//        })
-//    }
-//    if (!marker) {
-//        marker = L.marker([latitude, longitude]).bindPopup('You are here :)').addTo(mymap);
-//    }
-//    marker.setLatLng([latitude, longitude]).update();
-//    setTimeout(update_pos, 3000);
-//}
-//FINPRUEBA
 
 var options = {
     enableHighAccuracy: true,

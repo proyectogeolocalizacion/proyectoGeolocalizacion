@@ -7,16 +7,20 @@
 
 
 <!-- page-header -->
-    
-        <div class="page-header-ruta">
-            <div class="row">
-                <div class="offset-1 page-caption">
-                    <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
-                    <h2 class="text-center"> Comprueba la(s) ruta(s) por donde has estado</h2>
-                </div>
-            </div>
+
+<div class="page-header-ruta">
+    <div class="row">
+        <div class="offset-1 page-caption">
+            <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
+            <h3 class="text-center"> Comprueba la(s) ruta(s) por donde has estado</h3>
         </div>
-    
+        <div class="offset-9">
+            <h4 class="text-capitalize-"> Mapa de tus rutas</h4>
+        </div>
+    </div>
+</div>
+        
+
 <!-- /.page-header-->
 
 <title>Geolocation</title>
@@ -61,30 +65,25 @@
         <div class="offset-1 col-7" id="mapid"></div>
 
         <div class="col-3">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Alias</th>
-                    </tr>
-                    <tr></tr>
-                </thead>
-                <tbody>
-                    @foreach (Device item in Model)
-                    {
-                        <tr>
-                            <th>
-                                <input checked type="checkbox" />
-                            </th>
-                            <th>@item.Alias</th>
-                        </tr>
-                        <tr></tr>
 
-                    }
-                </tbody>
-            </table>
             <form>
-                <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+                <select name="cars" class="custom-select-lg">
+                    <option selected>Selecciona el Alias de busqueda</option>
+                    <option value="alias">Alias</option>
+                </select>
+                <hr />
+                
+                    <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
             </form>
+                <hr />
+                <form>
+                  
+
+
+
+
+                </form>
+
         </div>
     </div>
 
