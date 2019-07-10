@@ -26,7 +26,7 @@
 
 
 <body>
-    <div id="page-container" style="background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png');min-height: 100vh; position:relative; height:100%; width: 100%; background-repeat:no-repeat; background-size:cover;">
+    <div id="page-container">
         <div class="content-wrap">
 
             <header>
@@ -106,7 +106,7 @@
 
         <div class="footer-copyright text-center py-3" style="background-color: black; color: white;">
             © 2019 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/" style="color: white;"> The Finder </a>
+            <a href=# style="color: white;"> The Finder </a>
         </div>
 
 
@@ -133,7 +133,12 @@
                 integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"></script>
     </environment>
     <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/canal.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 

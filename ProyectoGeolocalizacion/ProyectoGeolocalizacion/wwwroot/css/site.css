@@ -1,6 +1,24 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
+/**********IMAGEN DE FONDO********/
+#page-container {
+    background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png');
+    min-height: 100vh;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+/**********************************************/
+
+.p {
+    margin-bottom: 80px;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -20,7 +38,9 @@ a.navbar-brand {
 
 
 #mapid {
-    height: 500px;
+    height: 490px;
+    width: 80%;
+    border-radius: 10px;
 }
 
 .d{
@@ -28,7 +48,7 @@ a.navbar-brand {
 }
 
 
-#background {
+/*#background {
     background-image: url('https://i0.wp.com/xyspy.com/wp-content/uploads/2019/05/Top-7-iPhone-Real-Time-Location-Tracking-Tools-and-Apps-1200x675.png');
     width: 100%;
     height: 100%;
@@ -36,7 +56,8 @@ a.navbar-brand {
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
-}
+    
+}*/
 
 
 .loginform{
@@ -75,17 +96,6 @@ a{
     opacity: 0.10;
 }
 
-
-.p {
-    margin-bottom: 80px;
-}
-
-
-#mapid {
-    height: 490px;
-    width: 75%;
-    border-radius: 10px;
-}
 
 .card-img-top {
     width: 100%;
@@ -131,7 +141,7 @@ a{
         transform: scale(1.1);
     }
 
-/**************************PAGE HEADER*****/
+/**************************PAGE HEADER MAPSPOSITION*****/
 
 .page-header {
     background: url(https://images.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)no-repeat;
