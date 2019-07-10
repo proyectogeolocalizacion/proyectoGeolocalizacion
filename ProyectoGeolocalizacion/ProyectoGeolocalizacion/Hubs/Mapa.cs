@@ -19,12 +19,12 @@ namespace ProyectoGeolocalizacion.Hubs
             _context = context;
         }
 
-        public async Task SendMessage(double longitude, double latitude, string alias)
+        public async Task SendMessage(double longitude, double latitude, string alias, string canal)
         {
 
-            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude, alias);
+            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude, alias, canal);
             Location location = new Location();
-            Device device = await _context.Device.FirstOrDefaultAsync(x=>x.Alias == alias);
+            Device device = await _context.Device.FirstOrDefaultAsync(x=>x.Alias == alias && x.Channel == canal);
             location.Device = device;
             //location.DeviceId = 1;
             location.Latitude = latitude;

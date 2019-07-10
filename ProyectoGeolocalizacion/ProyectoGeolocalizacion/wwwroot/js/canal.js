@@ -7,6 +7,7 @@ document.getElementById("sendButton").disabled = true;
 
 connection.start().then(function () {
     document.getElementById("sendButton").disabled = false;
+    geoloc();
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -38,8 +39,29 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias) {
     }
 
     //markerCluster.addLayer(marker);
-
+    geoloc();
 });
+
+function geoloc() {
+    var watchID = navigator.geolocation.getCurrentPosition(function (position) {
+        var lng = position.coords.longitude;
+        document.getElementById("userInput").value = position.coords.longitude;
+        var lat = position.coords.latitude;
+        document.getElementById("messageInput").value = position.coords.latitude;
+
+        let alias = document.getElementById("alias").value;
+        let canal = document.getElementById("canal").value;
+        //console.log(position.coords.longitude);
+        console.log(alias);
+
+
+        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, canal).catch(function (err) {
+            return console.error(err.toString());
+        })
+
+        //event.preventDefault();
+    });
+}
 
 //PRUEBA SI NO BORRAR
 //var marker;
