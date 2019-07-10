@@ -37,26 +37,7 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias) {
         marker[alias].setLatLng([latitude, longitude]).update();
     }
 
-    //markerCluster.addLayer(marker);
-
 });
-
-//PRUEBA SI NO BORRAR
-//var marker;
-//function update_pos() {
-//    if (navigator.geolocation) {
-//        navigator.geolocation.watchPosition(function (position) {
-//            var latitude = position.coords.latitude;
-//            var longitude = position.coords.longitude;
-//        })
-//    }
-//    if (!marker) {
-//        marker = L.marker([latitude, longitude]).bindPopup('You are here :)').addTo(mymap);
-//    }
-//    marker.setLatLng([latitude, longitude]).update();
-//    setTimeout(update_pos, 3000);
-//}
-//FINPRUEBA
 
 var options = {
     enableHighAccuracy: true,
@@ -94,26 +75,38 @@ function recibirPosicion(position) {
 }
 
 window.onbeforeunload = function () {
-    let desconectBtn = document.getElementById('dscnct'); 
+    let desconectBtn = document.getElementById('dscnct');
     desconectBtn.click();
 };
 
 
 //HACER DESAPARECER MARKERS CHECKBOXES  
 
-var check = document.getElementById("check");
+var tabla = document.getElementById("tabla");
+var casillas = tabla.getElementsByTagName('input');
 
-function ocultar() {
-    if (check.checked = false) {
 
-       
+for (var i = 0, len = casillas.length; i < casillas; i++) {
+    if (casillas[i].type === 'checkbox') {
+        casillas[i].onclick = function () {
+            if (casillas.checked = false) {
+
+                map.removeLayer(marker[i]);
+
+            } else {
+
+                map.AddLayer(marker[i]);
+
+            }
+        };
+
+
+
+
+
+
     }
-    else {
 
-
-
-    }
-};
 
 
 
