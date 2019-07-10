@@ -3,7 +3,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 /**********IMAGEN DE FONDO********/
-#page-container {
+/*#page-container {
     background-image: url('https://www.nfiindustries.com/wp-content/uploads/2019/04/Picture1-975x550.png');
     min-height: 100vh;
     position: relative;
@@ -12,7 +12,7 @@ for details on configuring this project to bundle and minify static web assets. 
     background-repeat: no-repeat;
     background-size: cover;
     
-}
+}*/
 /**********************************************/
 
 .p {

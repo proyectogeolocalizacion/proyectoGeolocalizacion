@@ -24,13 +24,20 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 let markerCluster = L.markerClusterGroup();
+var marker = {};
 
-connection.on("ReceiveMessage", function (longitude, latitude) {
-    var marker = L.marker([latitude, longitude]).bindPopup('You are here :)');
+connection.on("ReceiveMessage", function (longitude, latitude, alias) {
+
+    if (!marker[alias]) {
+
+        marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
+        mymap.addLayer(marker[alias]);
+
+    } else {
+        marker[alias].setLatLng([latitude, longitude]).update();
+    }
+
     //markerCluster.addLayer(marker);
-
-    mymap.addLayer(marker);
-    console.log(latitude);
 
 });
 
@@ -85,6 +92,11 @@ function recibirPosicion(position) {
         latitudActual = position.coords.latitude;
     }
 }
+
+window.onbeforeunload = function () {
+    let desconectBtn = document.getElementById('dscnct');
+    desconectBtn.click();
+};
 
 
 
