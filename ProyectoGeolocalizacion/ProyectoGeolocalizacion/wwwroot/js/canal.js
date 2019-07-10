@@ -99,5 +99,22 @@ window.onbeforeunload = function () {
 };
 
 
+//HACER DESAPARECER MARKERS CHECKBOXES  
+
+var check = document.getElementById("check");
+
+function ocultar() {
+    if (check.checked = false) {
+
+       
+    }
+    else {
+
+
+
+    }
+};
+
+
 
 
