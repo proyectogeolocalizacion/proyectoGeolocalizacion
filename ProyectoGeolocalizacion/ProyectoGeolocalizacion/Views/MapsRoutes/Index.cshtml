@@ -1,12 +1,11 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "MapsRoutes";
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
 }
 
 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <!-- page-header -->
 
@@ -38,9 +37,9 @@
             <br />
             @*latitud...*@<input hidden type="text" id="messageInput" />
             <br />
-            @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]" />
+            @*alias...*@<input hidden type="text" id="alias" value="@ViewData[" alias"]" />
             <br />
-            @*canal...*@<input hidden type="text" id="canal" value="@ViewData["channel"]" />
+            @*canal...*@<input hidden type="text" id="canal" value="@ViewData[" channel"]" />
             <br />
             <input hidden type="button" id="sendButton" value="Send Message" />
         </div>
@@ -73,11 +72,11 @@
                     <option selected>Selecciona el Alias de busqueda</option>
                     <option value="alias">Alias</option>
                 </select>
-               
+
             </form>
             <hr />
 
-         
+            Selecciona una fecha: <div id="calendario"></div>
 
             <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
         </div>
@@ -88,5 +87,6 @@
 </body>
 
 
-
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
