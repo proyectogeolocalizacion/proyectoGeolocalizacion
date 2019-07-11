@@ -93,13 +93,13 @@ for (var i = 0, len = casillas.length; i < len; i++) {
 
 
         casillas[i].onclick = function () {
-            if (casillas[i].checked = false) {
+            if (this.checked == false) {
 
-                mymap.removeLayer(marker[i]);
+                mymap.removeLayer(marker[this.id]);
 
             } else {
 
-                mymap.addLayer(marker[i]);
+                mymap.addLayer(marker[this.id]);
 
             }
         };
