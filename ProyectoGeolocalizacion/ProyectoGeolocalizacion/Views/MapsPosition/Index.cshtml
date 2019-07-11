@@ -64,16 +64,16 @@
                     <tr></tr>
                 </thead>
                 <tbody>
-                    
+
                     @foreach (Device item in Model)
                     {
-                    <tr>
-                        <th>
-                            <input checked type="checkbox" id="@item.Alias"/>
-                        </th>
-                        <th id="@item.Alias">@item.Alias</th>
-                    </tr>
-                    <tr></tr>
+                        <tr>
+                            <th>
+                                <input checked type="checkbox" id="@item.Alias" />
+                            </th>
+                            <th id="@item.Alias">@item.Alias</th>
+                        </tr>
+                        <tr></tr>
 
                     }
                 </tbody>
@@ -89,4 +89,6 @@
 
 </body>
 
-
+@section Scripts {
+    <script src="~/js/canal.js" asp-append-version="true"></script>
+}

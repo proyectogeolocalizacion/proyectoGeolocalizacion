@@ -29,12 +29,20 @@ a.navbar-brand {
     margin-bottom: 100vh;
 }
 
-
+/***********************MAPAS***************/
 #mapid {
     height: 490px;
     width: 80%;
     border-radius: 10px;
 }
+
+#heatmap {
+    height: 490px;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/************************************************/
 
 .d{
     margin-bottom: 200px;

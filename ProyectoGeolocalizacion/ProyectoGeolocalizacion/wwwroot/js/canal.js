@@ -3,10 +3,10 @@
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 //Disable send button until connection is established
-document.getElementById("sendButton").disabled = true;
+//document.getElementById("sendButton").disabled = true;
 
 connection.start().then(function () {
-    document.getElementById("sendButton").disabled = false;
+    //document.getElementById("sendButton").disabled = false;
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -106,3 +106,4 @@ for (var i = 0, len = casillas.length; i < len; i++) {
 
     }
 }
+
