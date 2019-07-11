@@ -11,9 +11,11 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 
+//Mapa Inicial...
 
 let mymap = L.map('mapid').setView([43.2630126, -2.9349852], 13);
 
+//Api y Token...
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -22,9 +24,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoibWlubmFoZWkiLCJhIjoiY2p4a2w5eDV1MjlrZzN6bno4YndzcGoycyJ9.t6dIk600zRcR4wHtWNZH_Q'
 }).addTo(mymap);
 
+//Variable marker array para mostrar un marcador nuevo por alias y mostrar su alias al pinchar marker
 
 let markerCluster = L.markerClusterGroup();
-
 var marker = {};
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias) {
@@ -42,12 +44,14 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias) {
 
 });
 
-
 var options = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
 };
+
+//Llamada del navegador para recoger posicion localizacion y recogerlos por el SignalR con los "boxes" que devuelven la posicion....
+
 var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
 
 function errorPosicion(error) {
@@ -78,10 +82,19 @@ function recibirPosicion(position) {
     }
 }
 
+//funcion del boton de desconectar canal....
+
 window.onbeforeunload = function () {
     let desconectBtn = document.getElementById('dscnct');
     desconectBtn.click();
 };
+
+
+
+
+
+
+
 
 
 
