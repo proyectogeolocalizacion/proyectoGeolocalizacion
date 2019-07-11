@@ -19,10 +19,10 @@ namespace ProyectoGeolocalizacion.Hubs
             _context = context;
         }
 
-        public async Task SendMessage(double longitude, double latitude, string alias)
+        public async Task SendMessage(double longitude, double latitude, string alias, string canal)
         {
 
-            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude, alias);
+            await Clients.All.SendAsync("ReceiveMessage", longitude, latitude, alias, canal);
             Location location = new Location();
             Device device = await _context.Device.FirstOrDefaultAsync(x=>x.Alias == alias);
             location.Device = device;
@@ -33,8 +33,8 @@ namespace ProyectoGeolocalizacion.Hubs
             
             _context.Add(location);
             await _context.SaveChangesAsync();
-            var longitud = await _context.Location.Include(x => x.Longitude).FirstOrDefaultAsync();
-            var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
+            //var longitud = await _context.Location.Include(x => x.Longitude).FirstOrDefaultAsync();
+            //var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
         }
 
     }

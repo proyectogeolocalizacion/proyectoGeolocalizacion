@@ -4,9 +4,10 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
-
+var canal = document.getElementById('canal').value;
 connection.start().then(function () {
     document.getElementById("sendButton").disabled = false;
+    geoloc();
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -26,16 +27,26 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 let markerCluster = L.markerClusterGroup();
 var marker = {};
 
-connection.on("ReceiveMessage", function (longitude, latitude, alias) {
+var channel = document.getElementById('canal').value;
+connection.on("ReceiveMessage", function (longitude, latitude, alias, canal) {
 
-    if (!marker[alias]) {
+    if (channel != canal) {
 
-        marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
-        mymap.addLayer(marker[alias]);
-
-    } else {
-        marker[alias].setLatLng([latitude, longitude]).update();
     }
+    else {
+        if (!marker[alias]) {
+            marker[canal] = canal;
+            marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
+            mymap.addLayer(marker[alias]);
+            geoloc();
+        } else {
+            marker[canal] = canal;
+            marker[alias].setLatLng([latitude, longitude]).update();
+            geoloc();
+        }
+
+    }
+    
 
 });
 
@@ -44,7 +55,7 @@ var options = {
     timeout: 5000,
     maximumAge: 0
 };
-var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
+var watchID = navigator.geolocation.getCurrentPosition(recibirPosicion, errorPosicion, options);
 
 function errorPosicion(error) {
     console.log(error)
@@ -60,19 +71,19 @@ function recibirPosicion(position) {
     document.getElementById("messageInput").value = position.coords.latitude;
 
     let alias = document.getElementById("alias").value;
-    let canal = document.getElementById("canal").value;
+    canal = document.getElementById("canal").value;
     console.log(alias);
     console.log(canal);
 
-    if (longitudActual !== position.coords.longitude || latitudActual !== position.coords.latitude) {
+    //if (longitudActual !== position.coords.longitude || latitudActual !== position.coords.latitude) {
 
-        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
+        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, canal).catch(function (err) {
             return console.error(err.toString());
 
-        });
+        //});
         longitudActual = position.coords.longitude;
         latitudActual = position.coords.latitude;
-    }
+    })
 }
 
 window.onbeforeunload = function () {
@@ -105,4 +116,30 @@ for (var i = 0, len = casillas.length; i < len; i++) {
         };
 
     }
+}
+
+function geoloc() {
+    var watchID = navigator.geolocation.getCurrentPosition(function (position) {
+        var lng = position.coords.longitude;
+        document.getElementById("userInput").value = position.coords.longitude;
+        var lat = position.coords.latitude;
+        document.getElementById("messageInput").value = position.coords.latitude;
+
+        let alias = document.getElementById("alias").value;
+        let canal = document.getElementById("canal").value;
+        //console.log(position.coords.longitude);
+        console.log(alias);
+        console.log(canal);
+
+        
+        //connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, canal).catch(function (err) {
+        //    return console.error(err.toString());
+        //    console.log(position.coords.longitude);
+        //    console.log(position.coords.latitude);
+        //    console.log(alias);
+        //    console.log(canal);
+        //})
+
+        //event.preventDefault();
+    });
 }

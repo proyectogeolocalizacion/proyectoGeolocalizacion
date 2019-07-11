@@ -32,7 +32,7 @@
             <br />
             alias...<input type="text" id="alias" value="@ViewData["alias"]" />
             <br />
-            canal...<input type="text" id="canal" value="@ViewData["channel"]" />
+            canal...<input type="text" id="canal" value="@canal" />
             <br />
             <input type="button" id="sendButton" value="Send Message" />
         </div>
@@ -65,6 +65,7 @@
                     {
                     <tr>
                         <th>
+                            <input class="ocult" hidden="hidden" id="@item.Channel" />
                             <input checked type="checkbox" id="@item.Alias"/>
                         </th>
                         <th id="@item.Alias">@item.Alias</th>
