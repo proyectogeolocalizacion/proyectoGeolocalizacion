@@ -154,6 +154,14 @@ a{
 
 /******************PAGE HEADER CALOR**************/
 
+.page-header-heatmap {
+    background-image: url('../images/heatmap.jpeg');
+    background-size: cover;
+    color: white;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
 
 
 

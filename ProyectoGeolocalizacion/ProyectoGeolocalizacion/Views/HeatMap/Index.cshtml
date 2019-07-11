@@ -1,7 +1,20 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
+    string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["canal"];
 }
 
-<h1>Index</h1>
-
+<!-- page-header -->
+<div class="page-header-heatmap">
+    <div class="row">
+        <div class="offset-1 page-caption">
+            <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
+            <h2 class="text-center"> Concentración de dispositivos</h2>
+        </div>
+        <div class="offset-9">
+            <h4 class="text-capitalize-"> Mapa de calor</h4>
+        </div>
+    </div>
+</div>
+<!-- /.page-header-->
