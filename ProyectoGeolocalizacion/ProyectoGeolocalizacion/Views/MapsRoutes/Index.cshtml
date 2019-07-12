@@ -5,7 +5,12 @@
 }
 
 
-    
+<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+
+
 
 <!-- page-header -->
 
@@ -61,30 +66,56 @@
 
 
 <body>
-
     <div class="row">
-        <div class="offset-1 col-7" id="mapid"></div>
+        <div class="col-7">
+            <div style="position: relative">
+                <div id="routemap" style="height: 400px">
+                </div>
+            </div>
+        </div>
+
 
         <div class="col-3">
 
             <form>
-                <select name="cars" class="custom-select-lg">
+                <select name="alias" class="custom-select-lg">
                     <option selected>Selecciona el Alias de busqueda</option>
                     <option value="alias">Alias</option>
                 </select>
 
             </form>
             <hr />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
 
-            Selecciona una fecha: <div id="calendario"></div>
-
-            <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+                        <!-- Form code begins -->
+                        <form method="post">
+                            <div class="form-group">
+                                <!-- Date input -->
+                                <label class="control-label" for="date">Buscar Fecha</label>
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <!-- Submit button -->
+                                <button class="btn btn-primary " name="submit" type="submit">Buscar</button>
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
+
 
 
 
 </body>
 
+<script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+<script src="~/js/site.js"></script>
 
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>

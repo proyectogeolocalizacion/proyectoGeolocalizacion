@@ -59,46 +59,32 @@
 //    });
 
 
+var map = L.Wrld.map("routemap", "91a68d505577cb772e2ba97464e831bf", {
+    center: [43.2630126, -2.9349852],
+    zoom: 15
+});
+
+var polylinePoints = [
+    [43.2630126, -2.9349852],
+    [45.270012, -2.9204827]
+];
+
+var polyline = L.Wrld.polyline(polylinePoints, { color: 'red', weight: 3 }).addTo(map);
+map.fitBounds(polyline.getBounds());
 
 
 
-
-
-//var map = L.map('mapid').setView([43.2630126, -2.9349852], 10);
-
-//function onAccuratePositionProgress(e) {
-//    console.log(e.accuracy);
-//    console.log(e.latlng);
-//}
-
-//function onAccuratePositionFound(e) {
-//    console.log(e.accuracy);
-//    console.log(e.latlng);
-//}
-
-//function onAccuratePositionError(e) {
-//    console.log(e.message)
-//}
-
-//map.on('accuratepositionprogress', onAccuratePositionProgress);
-//map.on('accuratepositionfound', onAccuratePositionFound);
-//map.on('accuratepositionerror', onAccuratePositionError);
-
-//map.findAccuratePosition({
-//    maxWait: 15000, // defaults to 10000
-//    desiredAccuracy: 30 // defaults to 20
-//});
-
-
-
-
-//$(function () {
-//    $("#calendario").datepicker();
-//});
-
-
-
-
+$(document).ready(function () {
+    var date_input = $('input[name="date"]'); //our date input has the name "date"
+    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+    var options = {
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+    };
+    date_input.datepicker(options);
+})
 
 
 
