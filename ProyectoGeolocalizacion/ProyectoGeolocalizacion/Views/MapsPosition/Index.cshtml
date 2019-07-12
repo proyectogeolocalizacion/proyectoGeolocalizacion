@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ProyectoGeolocalizacion.Models.Device>
 
 @{
-    ViewData["Title"] = "Maps Position";
+   
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
 }
@@ -27,6 +27,8 @@
 <meta charset="utf-8">
 
 
+@*BOTONES OCULTOS (HIDDEN)*@
+
 <div class="container">
     <div hidden class="row">
         <div class="col-6">
@@ -36,7 +38,7 @@
             <br />
             alias...<input type="text" id="alias" value="@ViewData["alias"]" />
             <br />
-            canal...<input type="text" id="canal" value="@ViewData["channel"]" />
+            canal...<input type="text" id="canal" value="@canal" />
             <br />
             <input type="button" id="sendButton" value="Send Message" />
         </div>
@@ -49,10 +51,9 @@
 
 </div>
 
-
+@*DIBUJAR MAPA Y TABLA*@
 
 <body>
-
     <div class="row">
         <div class="offset-1 col-7" id="mapid"></div>
         <div id="tabla" class="col-3">

@@ -1,9 +1,29 @@
-﻿
+﻿@using Newtonsoft.Json;
+
+@model IEnumerable<ProyectoGeolocalizacion.Models.Location>
+
 @{
-    ViewData["Title"] = "Index";
+
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
+    List<Location> listaLocations = (List<Location>)Model;
+
+    string locations ="";
+    foreach (Location x in listaLocations)
+    {
+
+        locations += JsonConvert.SerializeObject(new {x.Latitude, x.Longitude }, Formatting.Indented);
+
+    }
+
+
+
+
 }
+
+<!-- todas las localizaciones -->
+<p id="locations">@locations</p>
+
 
 <!-- page-header -->
 <div class="page-header-heatmap">
