@@ -4,7 +4,7 @@
 var locations = document.getElementById("locations").childNodes;
 console.log(locations)
 
-var obj = JSON.parse(locations); 
+//var obj = JSON.parse(locations); 
 
 
 
