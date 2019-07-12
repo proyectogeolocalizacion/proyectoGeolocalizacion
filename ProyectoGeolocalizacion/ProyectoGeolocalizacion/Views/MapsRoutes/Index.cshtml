@@ -1,4 +1,8 @@
-﻿@{
+﻿@model IEnumerable<ProyectoGeolocalizacion.Models.Device>
+
+
+
+@{
     ViewData["Title"] = "MapsRoutes";
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
@@ -80,7 +84,18 @@
             <form>
                 <select name="alias" class="custom-select-lg">
                     <option selected>Selecciona el Alias de busqueda</option>
-                    <option value="alias">Alias</option>
+
+                    @foreach (Device x in Model)
+                    {
+                    <option value="@x.Alias">@x.Alias</option>
+
+                    }
+
+
+
+
+
+
                 </select>
 
             </form>
