@@ -8,8 +8,11 @@ namespace ProyectoGeolocalizacion.Controllers
 {
     public class HeatMapController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(string alias, string canal)
         {
+
+            ViewData["alias"] = alias;
+            ViewData["canal"] = canal;
             return View();
         }
     }

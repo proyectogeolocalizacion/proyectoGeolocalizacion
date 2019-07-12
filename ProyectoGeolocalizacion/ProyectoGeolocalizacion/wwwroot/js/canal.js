@@ -39,19 +39,8 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias) {
 
 });
 
-var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-};
+
 var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
-
-function errorPosicion(error) {
-    console.log(error)
-}
-var longitudActual;
-var latitudActual;
-
 
 function recibirPosicion(position) {
     console.log(position.coords.longitude);
@@ -75,6 +64,18 @@ function recibirPosicion(position) {
     }
 }
 
+function errorPosicion(error) {
+    console.log(error)
+}
+var longitudActual;
+var latitudActual;
+
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
 window.onbeforeunload = function () {
     let desconectBtn = document.getElementById('dscnct');
     desconectBtn.click();
@@ -89,9 +90,6 @@ var casillas = tabla.getElementsByTagName('input');
 
 for (var i = 0, len = casillas.length; i < len; i++) {
     if (casillas[i].type === 'checkbox') {
-
-
-
         casillas[i].onclick = function () {
             if (this.checked == false) {
 
