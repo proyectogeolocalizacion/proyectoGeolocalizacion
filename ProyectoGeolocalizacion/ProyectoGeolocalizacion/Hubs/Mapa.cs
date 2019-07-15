@@ -37,6 +37,17 @@ namespace ProyectoGeolocalizacion.Hubs
             var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
         }
 
+        public async Task Desconectar(string alias)
+        {
+            await Clients.All.SendAsync("QuitarMarker", alias);
+            
+
+        }
+
+
+
+
+
     }
 
     

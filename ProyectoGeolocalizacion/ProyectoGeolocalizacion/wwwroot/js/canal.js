@@ -41,7 +41,6 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEm
         }
     }
 
-
 });
 
 
@@ -81,10 +80,31 @@ var options = {
     maximumAge: 0
 };
 
+let desconectBtn = document.getElementById('dscnct');
 window.onbeforeunload = function () {
-    let desconectBtn = document.getElementById('dscnct');
+
     desconectBtn.click();
 };
+
+desconectBtn.addEventListener("click", function () {
+
+    let alias = document.getElementById("alias").value;
+    console.log(alias);
+
+    connection.invoke("Desconectar", alias).catch(function (err) {
+
+        return console.error(err.toString());
+
+    });
+
+})
+
+
+connection.on("QuitarMarker", function (alias) {
+
+    mymap.removeLayer(marker[alias]);
+})
+
 
 
 //HACER DESAPARECER MARKERS CHECKBOXES  
