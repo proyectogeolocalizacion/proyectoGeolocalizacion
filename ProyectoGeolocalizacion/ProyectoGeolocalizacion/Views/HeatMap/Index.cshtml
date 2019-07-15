@@ -15,11 +15,14 @@
 
         locations += JsonConvert.SerializeObject(new {x.Latitude, x.Longitude }, Formatting.Indented) + ",";
 
+
     }
     locations = locations.Substring(0, locations.Length - 1);
     locations += "]";
     locations = locations.Replace("Longitude", "lng");
     locations= locations.Replace("Latitude", "lat");
+
+
     locations = locations.Replace("}", ",\"count\":1}");
 }
 
