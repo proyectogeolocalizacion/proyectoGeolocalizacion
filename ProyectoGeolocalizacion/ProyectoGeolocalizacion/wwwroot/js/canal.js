@@ -11,8 +11,19 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 
+///////////////////////////////////// CENTER MAP
 
-let mymap = L.map('mapid').setView([43.2630126, -2.9349852], 13);
+
+let mymap = L.map('mapid');
+
+    
+
+
+
+///////////////////////////////////////
+
+
+//let mymap = L.map('mapid').setView([43.2630126, -2.9349852], 13);
 
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -27,7 +38,8 @@ let markerCluster = L.markerClusterGroup();
 var marker = {};
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias) {
-
+    
+   
     if (!marker[alias]) {
 
         marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
@@ -65,6 +77,14 @@ var options = {
 };
 var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
 
+let currentPosition = navigator.geolocation.getCurrentPosition(function (pos) {
+    let lat = pos.coords.latitude;
+    let long = pos.coords.longitude;
+    mymap.setView([lat, long], 13);
+}, function (err) {
+    console.warn('ERROR(' + err.code + '): ' + err.message);
+});
+
 function errorPosicion(error) {
     console.log(error)
 }
@@ -77,6 +97,9 @@ function recibirPosicion(position) {
     document.getElementById("userInput").value = position.coords.longitude;
     document.getElementById("messageInput").value = position.coords.latitude;
 
+
+    mymap.panTo([position.coords.latitude, position.coords.longitude]);
+    
     let alias = document.getElementById("alias").value;
     let canal = document.getElementById("canal").value;
     console.log(alias);

@@ -1,22 +1,32 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "MapsRoutes";
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
 }
 
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+
+
+
 <!-- page-header -->
-    
-        <div class="page-header-ruta">
-            <div class="row">
-                <div class="offset-1 page-caption">
-                    <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
-                    <h2 class="text-center"> Comprueba la(s) ruta(s) por donde has estado</h2>
-                </div>
-            </div>
+
+<div class="page-header-ruta" style="height: 125px;">
+    <div class="row">
+        <div class="offset-1 page-caption">
+            <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
+
         </div>
-    
+        <div class="offset-9">
+            <h4 class="text-capitalize-"> Mapa de tus rutas</h4>
+        </div>
+    </div>
+</div>
+
+
 <!-- /.page-header-->
 
 <title>Geolocation</title>
@@ -32,9 +42,9 @@
             <br />
             @*latitud...*@<input hidden type="text" id="messageInput" />
             <br />
-            @*alias...*@<input hidden type="text" id="alias" value="@ViewData["alias"]" />
+            @*alias...*@<input hidden type="text" id="alias" value="@ViewData[" alias"]" />
             <br />
-            @*canal...*@<input hidden type="text" id="canal" value="@ViewData["channel"]" />
+            @*canal...*@<input hidden type="text" id="canal" value="@ViewData[" channel"]" />
             <br />
             <input hidden type="button" id="sendButton" value="Send Message" />
         </div>
@@ -56,42 +66,57 @@
 
 
 <body>
-
     <div class="row">
-        <div class="offset-1 col-7" id="mapid"></div>
+        <div class="offset-1 col-7">
+            <div style="position: relative">
+                <div id="routemap" style="height: 400px">
+                </div>
+            </div>
+        </div>
+
 
         <div class="col-3">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Alias</th>
-                    </tr>
-                    <tr></tr>
-                </thead>
-                <tbody>
-                    @foreach (Device item in Model)
-                    {
-                        <tr>
-                            <th>
-                                <input checked type="checkbox" />
-                            </th>
-                            <th>@item.Alias</th>
-                        </tr>
-                        <tr></tr>
 
-                    }
-                </tbody>
-            </table>
             <form>
-                <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+                <select name="alias" class="custom-select-lg">
+                    <option selected>Selecciona el Alias de busqueda</option>
+                    <option value="alias">Alias</option>
+                </select>
+
             </form>
+            <hr />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+
+                        <!-- Form code begins -->
+                        <form method="post">
+                            <div class="form-group">
+                                <!-- Date input -->
+                                <label class="control-label" for="date">Buscar Fecha</label>
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <!-- Submit button -->
+                                <button class="btn btn-primary " name="submit" type="submit">Buscar</button>
+                            </div>
+                        </form>
+                        <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
 
 
 
-
-
-
 </body>
+
+@section Scripts{
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+    <script src="~/js/site.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>}
