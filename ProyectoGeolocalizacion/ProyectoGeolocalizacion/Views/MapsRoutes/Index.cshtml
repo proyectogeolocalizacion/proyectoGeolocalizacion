@@ -6,6 +6,7 @@
     ViewData["Title"] = "MapsRoutes";
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
+
 }
 
 
@@ -81,45 +82,46 @@
 
         <div class="col-3">
 
-            <form>
-                <select name="alias" class="custom-select-lg">
+            <form asp-controller="MapsRoutes" asp-action="ShowRoute">
+
+                <select id="nombreAlias" name="nombreAlias" class="custom-select-lg">
                     <option selected>Selecciona el Alias de busqueda</option>
 
                     @foreach (Device x in Model)
                     {
-                    <option value="@x.Alias">@x.Alias</option>
+                        <option value="@x.Alias">@x.Alias</option>
 
                     }
 
-
-
-
-
-
                 </select>
 
-            </form>
-            <hr />
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
+                <hr />
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
 
-                        <!-- Form code begins -->
-                        <form method="post">
+                            <!-- Form code begins -->
                             <div class="form-group">
                                 <!-- Date input -->
                                 <label class="control-label" for="date">Buscar Fecha</label>
-                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />
+                                <input class="form-control" id="fecha" name="fecha" placeholder="MM/DD/YYY" type="datetime" />
                             </div>
                             <div class="form-group">
                                 <!-- Submit button -->
-                                <button class="btn btn-primary " name="submit" type="submit">Buscar</button>
+
+                               
+                                <input name="canal" value="@canal" type="hidden" />
+
+                                <button  id="dscnct" class="btn btn-dark btn-sm" type="submit">Buscar Ruta</button>
+
+
+
                             </div>
-                        </form>
-                        <button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>
+                            @*<button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>*@
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
     </div>

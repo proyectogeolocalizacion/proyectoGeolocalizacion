@@ -74,7 +74,7 @@ function recibirPosicion(position) {
 
     if (longitudActual !== position.coords.longitude || latitudActual !== position.coords.latitude) {
 
-        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias).catch(function (err) {
+        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, canal).catch(function (err) {
             return console.error(err.toString());
 
         });
