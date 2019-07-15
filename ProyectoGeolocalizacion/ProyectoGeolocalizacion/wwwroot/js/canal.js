@@ -11,20 +11,12 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 
-///////////////////////////////////// CENTER MAP
+
 
 
 let mymap = L.map('mapid');
 
     
-
-
-
-///////////////////////////////////////
-
-
-//let mymap = L.map('mapid').setView([43.2630126, -2.9349852], 13);
-
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -49,26 +41,10 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias) {
         marker[alias].setLatLng([latitude, longitude]).update();
     }
 
-    //markerCluster.addLayer(marker);
+
 
 });
 
-//PRUEBA SI NO BORRAR
-//var marker;
-//function update_pos() {
-//    if (navigator.geolocation) {
-//        navigator.geolocation.watchPosition(function (position) {
-//            var latitude = position.coords.latitude;
-//            var longitude = position.coords.longitude;
-//        })
-//    }
-//    if (!marker) {
-//        marker = L.marker([latitude, longitude]).bindPopup('You are here :)').addTo(mymap);
-//    }
-//    marker.setLatLng([latitude, longitude]).update();
-//    setTimeout(update_pos, 3000);
-//}
-//FINPRUEBA
 
 var options = {
     enableHighAccuracy: true,
