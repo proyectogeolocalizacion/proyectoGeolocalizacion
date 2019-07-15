@@ -25,21 +25,6 @@ var testData = {
     //]
 };
 
-//var testData = {
-//    max: 8,
-//    data: [ 
-
-//        for(var i = 0; locations<length; i++) {
-
-//    }
-
-
-        
-//};
-
-
-
-
 var baseLayer = L.tileLayer(
     'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '...',
