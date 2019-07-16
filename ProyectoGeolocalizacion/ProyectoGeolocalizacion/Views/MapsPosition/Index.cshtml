@@ -7,17 +7,16 @@
 }
 
 <!-- page-header -->
-<div class="page-header">
+<div class="page-header" style="height: 140px;">
     <div class="row">
         <div class="offset-1 page-caption">
-            <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
-            <h2 class="text-center"> Dispositivos conectados a este canal</h2>
+            <h2> Nombre del canal: @canal</h2>
+
         </div>
-        <div class="offset-9">
-            <h4 class="text-capitalize-"> Mapa de tu posicionamiento</h4>
+        <div class="subtitulo offset-9">
+            <h4 class="text-right"> Mapa de posicionamiento</h4>
         </div>
     </div>
-
 </div>
 <!-- /.page-header-->
 
@@ -83,6 +82,7 @@
                 <input name="alias" value="@alias" type="hidden" />
                 <input name="canal" value="@canal" type="hidden" />
                 <button id="dscnct" class="btn btn-dark btn-sm" type="submit">Desconectar</button>
+                <button id="backhome" class="btn btn-dark btn-sm" type="submit" asp-area="" asp-controller="MapsHome" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Volver a elegir mapa</button>
             </form>
         </div>
     </div>
