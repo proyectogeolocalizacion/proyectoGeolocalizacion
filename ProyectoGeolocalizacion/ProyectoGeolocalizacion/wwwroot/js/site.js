@@ -27,6 +27,10 @@ map.fitBounds(polyline.getBounds());
 
 
 
+
+
+
+
 //..........................Calendario busqueda fecha maproutes...............................//
 
 $(document).ready(function () {
