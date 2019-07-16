@@ -33,11 +33,21 @@ var marker = {};
 
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEmisor) {
+    let randomNumber = Math.floor(Math.random() * 3);
     if (canalDelEmisor == miCanal) {
 
         if (!marker[alias]) {
 
-            marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
+            switch (randomNumber) {
+                case 1:
+                    marker[alias] = L.marker([latitude, longitude], { icon: blackIcon }).bindPopup(alias); break;
+                case 2:
+                    marker[alias] = L.marker([latitude, longitude], { icon: yellowIcon }).bindPopup(alias); break;
+                case 3:
+                    marker[alias] = L.marker([latitude, longitude], { icon: redIcon }).bindPopup(alias); break;
+            }
+
+            //marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
             mymap.addLayer(marker[alias]);
 
         } else {
