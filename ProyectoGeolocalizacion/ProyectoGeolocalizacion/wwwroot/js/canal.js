@@ -1,7 +1,9 @@
 ﻿"use strict";
-
+//CONEXIÓN CON SIGNALR
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
+
+//AÑADIR FILAS
 connection.start().then(function () {
     let alias = document.getElementById("alias").value;
     connection.invoke("Fila", alias, miCanal);
@@ -10,9 +12,12 @@ connection.start().then(function () {
 });
 
 
+//MAPA INICIAL
 let mymap = L.map('mapid').setView([43.2630126, -2.9349852], 13);
 let miCanal = document.getElementById("canal").value;
 
+
+//API Y TOKEN
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 20,
@@ -21,6 +26,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 
+
+//CREAR MARCADORES Y MOSTRAR ALIAS AL CLICKAR EN ELLOS
 let markerCluster = L.markerClusterGroup();
 var marker = {};
 
@@ -41,7 +48,7 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEm
 
 });
 
-
+//WATCH POSITION - SEGUIMIENTO SIGNALR
 var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
 
 function recibirPosicion(position) {
@@ -108,9 +115,16 @@ connection.on("AnadirFila", function (alias, devicesOnline) {
     for (var i = 0; i < devicesOnline.length; i++) {
 
         var textoCelda = document.createTextNode(devicesOnline[i].alias);
-        var celda = document.createElement("td");
+        var celda = document.createElement("th");
+        var celda2 = document.createElement("th");
         var nuevaFila = document.createElement("tr");
         nuevaFila.setAttribute("id", devicesOnline[i].alias);
+
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.setAttribute("id", devicesOnline[i].alias);
+        checkbox.setAttribute("checked", "");
+
 
         var existeUsuario = false;
 
@@ -122,21 +136,22 @@ connection.on("AnadirFila", function (alias, devicesOnline) {
 
         if (!existeUsuario) {
 
-            celda.appendChild(textoCelda);
+            celda.appendChild(checkbox);
+            celda2.appendChild(textoCelda)
             nuevaFila.appendChild(celda);
+            nuevaFila.appendChild(celda2);
             tbody.appendChild(nuevaFila);
-     
         } 
-
-
-
     }
-
 })
 
 
 
 //HACER DESAPARECER MARKERS CHECKBOXES  
+
+setTimeout(function () {
+
+
 let tbody = document.getElementById("tbody");
 var tabla = document.getElementById("tabla");
 var casillas = tabla.getElementsByTagName('input');
@@ -158,4 +173,5 @@ for (var i = 0, len = casillas.length; i < len; i++) {
 
     }
 }
+},5000)
 
