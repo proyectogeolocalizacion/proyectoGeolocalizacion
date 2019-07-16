@@ -19,6 +19,8 @@ namespace ProyectoGeolocalizacion.Hubs
             _context = context;
         }
 
+
+        //MÉTODO PRINCIPAL ENSEÑAR MARKER EN POSICIÓN
         public async Task SendMessage(double longitude, double latitude, string alias, string canal)
         {
 
@@ -33,17 +35,28 @@ namespace ProyectoGeolocalizacion.Hubs
             
             _context.Add(location);
             await _context.SaveChangesAsync();
+
             var longitud = await _context.Location.Include(x => x.Longitude).FirstOrDefaultAsync();
             var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
         }
 
+
+        //HACER DESAPARECER MARKER SI SE DESCONECTA
         public async Task Desconectar(string alias)
         {
             await Clients.All.SendAsync("QuitarMarker", alias);
             
-
         }
 
+
+        //AÑADIR FILA AL CONECTAR
+
+        public async Task Fila(string alias, string canal)
+        {
+            List<Device> devicesOnline = await _context.Device.Where(x => x.Status == "Online" && x.Channel==canal).ToListAsync();
+            await Clients.All.SendAsync("AnadirFila", alias, devicesOnline);
+
+        }
 
 
 

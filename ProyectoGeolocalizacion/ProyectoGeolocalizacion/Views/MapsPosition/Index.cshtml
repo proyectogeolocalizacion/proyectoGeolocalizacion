@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ProyectoGeolocalizacion.Models.Device>
 
 @{
-   
+
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
 }
@@ -56,27 +56,27 @@
 <body>
     <div class="row">
         <div class="offset-1 col-7" id="mapid"></div>
-        <div id="tabla" class="col-3">
-            <table class="table table-striped">
+        <div class="col-3">
+            <table id="tabla" class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Alias</th>
                     </tr>
                     <tr></tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
 
-                    @foreach (Device item in Model)
-                    {
-                        <tr>
-                            <th>
-                                <input checked type="checkbox" id="@item.Alias" />
-                            </th>
-                            <th id="@item.Alias">@item.Alias</th>
-                        </tr>
-                        <tr></tr>
+                    @*@foreach (Device item in Model)
+                        {
+                            <tr>
+                                <th>
+                                    <input checked type="checkbox" id="@item.Alias" />
+                                </th>
+                                <th id="@item.Alias">@item.Alias</th>
+                            </tr>
+                            <tr></tr>
 
-                    }
+                        }*@
                 </tbody>
             </table>
             <form asp-controller="MapsPosition" asp-action="DeviceOff">

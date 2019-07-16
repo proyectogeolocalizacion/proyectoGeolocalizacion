@@ -2,11 +2,9 @@
 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
-//Disable send button until connection is established
-//document.getElementById("sendButton").disabled = true;
-
 connection.start().then(function () {
-    //document.getElementById("sendButton").disabled = false;
+    let alias = document.getElementById("alias").value;
+    connection.invoke("Fila", alias, miCanal);
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -53,26 +51,21 @@ function recibirPosicion(position) {
     document.getElementById("messageInput").value = position.coords.latitude;
 
     let alias = document.getElementById("alias").value;
-    
+
     console.log(alias);
     console.log(miCanal);
 
-    if (longitudActual !== position.coords.longitude || latitudActual !== position.coords.latitude) {
+    connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, miCanal).catch(function (err) {
+        return console.error(err.toString());
 
-        connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, miCanal).catch(function (err) {
-            return console.error(err.toString());
+    });
 
-        });
-        longitudActual = position.coords.longitude;
-        latitudActual = position.coords.latitude;
-    }
 }
 
 function errorPosicion(error) {
     console.log(error)
 }
-var longitudActual;
-var latitudActual;
+
 
 var options = {
     enableHighAccuracy: true,
@@ -80,6 +73,8 @@ var options = {
     maximumAge: 0
 };
 
+
+//FUNCION DEL BOTON DESCONECTAR
 let desconectBtn = document.getElementById('dscnct');
 window.onbeforeunload = function () {
 
@@ -94,21 +89,55 @@ desconectBtn.addEventListener("click", function () {
     connection.invoke("Desconectar", alias).catch(function (err) {
 
         return console.error(err.toString());
-
     });
-
 })
 
 
+//HACER DESAPARECER MARKER SI SE DESCONECTA
 connection.on("QuitarMarker", function (alias) {
 
     mymap.removeLayer(marker[alias]);
+    let fila = document.getElementById(alias);
+    tbody.removeChild(fila);
+})
+
+
+//AÑADIR FILA AL CONECTAR
+connection.on("AnadirFila", function (alias, devicesOnline) {
+
+    for (var i = 0; i < devicesOnline.length; i++) {
+
+        var textoCelda = document.createTextNode(devicesOnline[i].alias);
+        var celda = document.createElement("td");
+        var nuevaFila = document.createElement("tr");
+        nuevaFila.setAttribute("id", devicesOnline[i].alias);
+
+        var existeUsuario = false;
+
+        for (let row = 0; row < tabla.rows.length; row++) {
+            if (tabla.rows[row].id === devicesOnline[i].alias) {
+                existeUsuario = true;
+            }
+        }
+
+        if (!existeUsuario) {
+
+            celda.appendChild(textoCelda);
+            nuevaFila.appendChild(celda);
+            tbody.appendChild(nuevaFila);
+     
+        } 
+
+
+
+    }
+
 })
 
 
 
 //HACER DESAPARECER MARKERS CHECKBOXES  
-
+let tbody = document.getElementById("tbody");
 var tabla = document.getElementById("tabla");
 var casillas = tabla.getElementsByTagName('input');
 
