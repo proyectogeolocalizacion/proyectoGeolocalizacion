@@ -33,6 +33,7 @@ namespace ProyectoGeolocalizacion.Controllers
 
             }
             var allLocations = await _context.Location.ToListAsync();
+
             return View(allLocations);
         }
     }

@@ -33,7 +33,6 @@ var marker = {};
 
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEmisor) {
-
     if (canalDelEmisor == miCanal) {
 
         if (!marker[alias]) {
@@ -58,7 +57,6 @@ function recibirPosicion(position) {
     document.getElementById("messageInput").value = position.coords.latitude;
 
     let alias = document.getElementById("alias").value;
-
     console.log(alias);
     console.log(miCanal);
 
@@ -100,10 +98,10 @@ desconectBtn.addEventListener("click", function () {
 })
 
 
-//HACER DESAPARECER MARKER SI SE DESCONECTA
+//HACER DESAPARECER MARKER Y FILA SI SE DESCONECTA
 connection.on("QuitarMarker", function (alias) {
-
     mymap.removeLayer(marker[alias]);
+    marker[alias] = undefined;
     let fila = document.getElementById(alias);
     tbody.removeChild(fila);
 })
@@ -124,6 +122,7 @@ connection.on("AnadirFila", function (alias, devicesOnline) {
         checkbox.type = "checkbox";
         checkbox.setAttribute("id", devicesOnline[i].alias);
         checkbox.setAttribute("checked", "");
+        checkbox.onclick = checkboxMarkers;
 
 
         var existeUsuario = false;
@@ -135,43 +134,20 @@ connection.on("AnadirFila", function (alias, devicesOnline) {
         }
 
         if (!existeUsuario) {
-
             celda.appendChild(checkbox);
             celda2.appendChild(textoCelda)
             nuevaFila.appendChild(celda);
             nuevaFila.appendChild(celda2);
             tbody.appendChild(nuevaFila);
-        } 
+        }
     }
 })
 
-
-
-//HACER DESAPARECER MARKERS CHECKBOXES  
-
-setTimeout(function () {
-
-
-let tbody = document.getElementById("tbody");
-var tabla = document.getElementById("tabla");
-var casillas = tabla.getElementsByTagName('input');
-
-
-for (var i = 0, len = casillas.length; i < len; i++) {
-    if (casillas[i].type === 'checkbox') {
-        casillas[i].onclick = function () {
-            if (this.checked == false) {
-
-                mymap.removeLayer(marker[this.id]);
-
-            } else {
-
-                mymap.addLayer(marker[this.id]);
-
-            }
-        };
+function checkboxMarkers() {
+    if (this.checked == false) {
+        mymap.removeLayer(marker[this.id]);
+    } else {
+        mymap.addLayer(marker[this.id]);
 
     }
 }
-},5000)
-

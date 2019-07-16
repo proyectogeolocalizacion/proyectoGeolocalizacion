@@ -55,7 +55,7 @@ namespace ProyectoGeolocalizacion.Controllers
         }
 
 
-        //COMPROBAR ALIAS
+        //COMPROBAR ALIAS Y CREAR NUEVO ALIAS
         public async Task<bool> AliasExistsAsync(string alias /*string channel*/)
         {
             if (alias == null)
@@ -65,7 +65,7 @@ namespace ProyectoGeolocalizacion.Controllers
             else
             {
 
-                var device = await _context.Device.FirstOrDefaultAsync(m => m.Alias == alias);
+                var device = await _context.Device.FirstOrDefaultAsync(m => m.Alias.Equals(alias));
                 if (device == null)
                 {
 
@@ -81,9 +81,7 @@ namespace ProyectoGeolocalizacion.Controllers
                 else
                 {
 
-                    var deviceExist = await _context.Device.Where(x => x.Alias == alias).FirstOrDefaultAsync();
-
-                    //var channelExist = deviceExist.ChannelDevices.Where(x => x.Channel.Name == channel).FirstOrDefault();
+                    var deviceExist = await _context.Device.Where(x => x.Alias.Equals(alias)).FirstOrDefaultAsync();
                     if (deviceExist != null)
                     {
                         return false;
@@ -99,8 +97,8 @@ namespace ProyectoGeolocalizacion.Controllers
         //COMPROBAR CANAL
         public async Task<bool> ChannelExistsAsync(string canal, string alias)
         {
-            var channel = await _context.Channel.FirstOrDefaultAsync(m => m.Name == canal);
-            var device = await _context.Device.FirstOrDefaultAsync(x => x.Alias == alias);
+            var channel = await _context.Channel.FirstOrDefaultAsync(m => m.Name.Equals(canal));
+            var device = await _context.Device.FirstOrDefaultAsync(x => x.Alias.Equals(alias));
             if (channel == null)
             {
 

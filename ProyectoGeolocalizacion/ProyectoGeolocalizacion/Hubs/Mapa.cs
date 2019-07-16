@@ -35,9 +35,6 @@ namespace ProyectoGeolocalizacion.Hubs
             
             _context.Add(location);
             await _context.SaveChangesAsync();
-
-            var longitud = await _context.Location.Include(x => x.Longitude).FirstOrDefaultAsync();
-            var latitud = await _context.Location.Include(x => x.Latitude).FirstOrDefaultAsync();
         }
 
 

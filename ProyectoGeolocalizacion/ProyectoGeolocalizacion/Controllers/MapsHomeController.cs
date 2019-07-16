@@ -26,7 +26,6 @@ namespace ProyectoGeolocalizacion.Controllers
             ViewData["channel"] = canal;
 
             return View();
-            //return RedirectToAction("Index", "MapsPosition", new { device = device, canal = canal, location = location });
         }
     }
 }
