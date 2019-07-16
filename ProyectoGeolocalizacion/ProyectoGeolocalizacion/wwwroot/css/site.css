@@ -41,7 +41,18 @@ a.navbar-brand {
     width: 80%;
     border-radius: 10px;
 }
+#routemap {
+    height: 510px;
+    width: 90%;
+    border-radius: 12px;
+}
 
+
+#routesmap {
+    height: 520px;
+    width: 95%;
+    border-radius: 12px;
+}
 /************************************************/
 
 .d{

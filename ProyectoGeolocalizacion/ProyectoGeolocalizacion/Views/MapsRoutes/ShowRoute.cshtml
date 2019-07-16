@@ -12,13 +12,17 @@
     string canal = (string)ViewData["canal"];
     List<Location> listaLocations = (List<Location>)Model;
 
-    string locations = "";
+    string locations = "[";
     foreach (Location x in listaLocations)
     {
 
-        locations += JsonConvert.SerializeObject(new { x.Latitude, x.Longitude }, Formatting.Indented);
+        locations += JsonConvert.SerializeObject(new { x.Latitude, x.Longitude }, Formatting.Indented) + ",";
 
     }
+    locations = locations.Substring(0, locations.Length - 1);
+    locations += "]";
+    locations = locations.Replace("Longitude", "lng");
+    locations = locations.Replace("Latitude", "lat");
 
 }
 
@@ -28,9 +32,9 @@
 
 
 <div class="row">
-    <div class="offset-1 col-7">
+    <div class="offset-1 col-8">
         <div style="position: relative">
-            <div id="routesmap" style="height: 400px">
+            <div id="routemap" style="height: 400px">
             </div>
         </div>
     </div>
@@ -38,7 +42,7 @@
 
 
 
-    @section Scripts{
-        <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
-        <script src="~/js/showroutes.js"></script>
-    }
+@section Scripts{
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+    <script src="~/js/showroutes.js"></script>
+}
