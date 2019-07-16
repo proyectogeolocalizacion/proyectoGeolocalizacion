@@ -16,6 +16,9 @@ namespace ProyectoGeolocalizacion.Controllers
         {
             _context = context;
         }
+
+
+
         public async Task<IActionResult> Index(string alias, string canal)
         {
             if (alias != null)

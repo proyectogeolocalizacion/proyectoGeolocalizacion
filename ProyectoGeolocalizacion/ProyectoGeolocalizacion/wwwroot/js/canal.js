@@ -16,6 +16,7 @@ connection.start().then(function () {
 
 let mymap = L.map('mapid');
 
+
     
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

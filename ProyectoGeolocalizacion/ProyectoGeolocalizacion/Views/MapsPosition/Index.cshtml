@@ -77,6 +77,7 @@
                 <input name="alias" value="@alias" type="hidden" />
                 <input name="canal" value="@canal" type="hidden" />
                 <button id="dscnct" class="btn btn-dark btn-sm" type="submit">Desconectar</button>
+                <button id="backhome" class="btn btn-dark btn-sm" type="submit" asp-area="" asp-controller="MapsHome" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Volver a elegir mapa</button>
             </form>
         </div>
     </div>
