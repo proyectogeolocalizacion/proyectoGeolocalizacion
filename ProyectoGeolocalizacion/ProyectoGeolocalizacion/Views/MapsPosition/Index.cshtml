@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ProyectoGeolocalizacion.Models.Device>
+
+@{
+
+    string alias = (string)ViewData["alias"];
+    string canal = (string)ViewData["canal"];
+}
+
+<!-- page-header -->
+<div class="page-header" style="height: 140px;">
+    <div class="row">
+        <div class="offset-1 page-caption">
+            <h2> Nombre del canal: @canal</h2>
+
+        </div>
+        <div class="subtitulo offset-9">
+            <h4 class="text-right"> Mapa de posicionamiento</h4>
+        </div>
+    </div>
+</div>
+<!-- /.page-header-->
+
+
+<title>Geolocation</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+
+
+@*BOTONES OCULTOS (HIDDEN)*@
+
+<div class="container">
+    <div hidden class="row">
+        <div class="col-6">
+            longitud..........<input type="text" id="userInput" />
+            <br />
+            latitud...<input type="text" id="messageInput" />
+            <br />
+            alias...<input type="text" id="alias" value="@ViewData["alias"]" />
+            <br />
+            canal...<input type="text" id="canal" value="@canal" />
+            <br />
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+</div>
+
+@*DIBUJAR MAPA Y TABLA*@
+
+<body>
+    <div class="row">
+        <div class="offset-1 col-7" id="mapid"></div>
+        <div class="col-3">
+            <table id="tabla" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Alias</th>
+                    </tr>
+                    <tr></tr>
+                </thead>
+                <tbody id="tbody">
+
+                    @*@foreach (Device item in Model)
+                        {
+                            <tr>
+                                <th>
+                                    <input checked type="checkbox" id="@item.Alias" />
+                                </th>
+                                <th id="@item.Alias">@item.Alias</th>
+                            </tr>
+                            <tr></tr>
+
+                        }*@
+                </tbody>
+            </table>
+            <form asp-controller="MapsPosition" asp-action="DeviceOff">
+                <input name="alias" value="@alias" type="hidden" />
+                <input name="canal" value="@canal" type="hidden" />
+                <button id="dscnct" class="btn btn-dark btn-sm" type="submit">Desconectar</button>
+                <button id="backhome" class="btn btn-dark btn-sm" type="submit" asp-area="" asp-controller="MapsHome" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Volver a elegir mapa</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+@section Scripts {
+    <script src="~/js/canal.js" asp-append-version="true"></script>
+}

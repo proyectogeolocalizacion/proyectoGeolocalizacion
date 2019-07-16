@@ -1,6 +1,17 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/**********************************************/
+
+.p {
+    margin-bottom: 80px;
+
+}
+
+.navbar-brand {
+    font-size: 36px;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -9,83 +20,72 @@ a.navbar-brand {
 
 #logo {
     font-family: 'Cantarell', sans-serif;
-    height: 80px;
-}
-
-/*Sticky footer styles
--------------------------------------------------- 
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    height: 90px;
 }
 
 
 
-
- Sticky footer styles
--------------------------------------------------- 
-html {
-  position: relative;
-  min-height: 100%;
+#content-wrap {
+    margin-bottom: 100vh;
 }
 
-body {
-   Margin bottom by footer height 
-  margin-bottom: 60px;
-}
-
-    */
-
-
-
-
-
-
-
-
-
-
+/***********************MAPAS***************/
 #mapid {
-    height: 500px;
-   
+    height: 490px;
+    width: 80%;
+    border-radius: 10px;
+}
+
+#heatmap {
+    height: 490px;
+    width: 80%;
+    border-radius: 10px;
+}
+
+/************************************************/
+
+.d{
+    margin-bottom: 200px;
+}
+
+
+.loginform{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 50px;
+    margin-top: 300px;
+
 }
 
 
 
-.card-img-top {
-    width: 100%;
-    height: 30vw; /*(Viewport Height units) for a more mobile-friendly experience.*/
-    object-fit: cover; /*object-fit: cover enables zoom instead of image stretching.*/
+#container{
+    justify-content: flex-end;
 }
 
-.card-title {
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
+
+
+#copyright-footer {
+    color: white;
 }
 
-.btn btn-primary{
-    text-align: center;
+a{
+    color: white;
 }
+
+
+/************ SOCİAL İCONS ***************/
+.fab{
+    color: white;
+}
+
+.fab:hover {
+
+    opacity: 0.10;
+}
+
+
 /*************FOOTER***************/
 .page-footer {
     text-align: center;
@@ -99,12 +99,89 @@ body {
     color: rgba(30, 139, 195, 1);
 }
 
+/***********CARDS***************/
 
-/*SOCİAL İCONS*/
+.card-img-top {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-fit: cover;
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn btn-primary {
+    text-align: center;
+}
+.card-container {
+    perspective: 700px;
+}
+
+.foto {
+    height: 200px;
+}
+
+    .foto:hover {
+        transform: scale(1.1);
+    }
+
+/**************************PAGE HEADER MAPSPOSITION*****/
+
+.page-header {
+    background: url(https://images.pexels.com/photos/41949/earth-earth-at-night-night-lights-41949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)no-repeat;
+    background-size: cover;
+    color: white;
+    height: 200px;
+}
+
+.page-caption {
+    padding-top: 50px;
+}
+
+.page-title {
+    font-size: 50px;
+    line-height: 1;
+    color: #fff;
+    font-weight: 600;
+}
+
+.subtitulo {
+    margin-bottom: 20px;
+
+}
+
+
+/******************PAGE HEADER RUTAS**************/
+
+.page-header-ruta {
+    background-image: url('../images/road-sky-clouds-cloudy.jpg');
+    background-size: cover;
+    color: white;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+
+/******************PAGE HEADER CALOR**************/
+
+.page-header-heatmap {
+    background-image: url('../images/heatmap.jpeg');
+    background-size: cover;
+    color: white;
+    height: 200px;
+    margin-bottom: 50px;
+}
 
 
 
 
-/* footer social icons */
+
+
+
+
+
 
 

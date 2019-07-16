@@ -1,92 +1,51 @@
 ﻿
 
-/*
-var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+
+var map = L.Wrld.map("routemap", "91a68d505577cb772e2ba97464e831bf", {
+    center: [43.2630126, -2.9349852],
+    zoom: 8
 });
-*/
 
-/****************** GEOLOCALIZATION **************************
+var polylinePoints = [
+    [43.2630126, -2.9349852],
+    [43.260012, -2.9204827],
+    [43.261512, -2.9204827],
+    [43.2619512, -2.92495127],
+    [43.2619512, -2.93495127],
+    [43.2635512, -2.93585127]
 
+];
 
-var infoWindow, map;
+var polyline = L.Wrld.polyline(polylinePoints, { color: '#FF0000', weight: 4 }).addTo(map);
+map.fitBounds(polyline.getBounds());
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
-    });
+//..........................Calendario busqueda fecha maproutes...............................//
 
-  infoWindow = new google.maps.InfoWindow;
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
-
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-    }
- }
+$(document).ready(function () {
+    var date_input = $('input[name="fecha"]'); //our date input has the name "date"
+    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+    var options = {
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+    };
+    date_input.datepicker(options);
+})
 
 
 
 
-/*************************** MAP LEAFLET ***************************/
-
-//var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
-
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoibWlubmFoZWkiLCJhIjoiY2p4a2w5eDV1MjlrZzN6bno4YndzcGoycyJ9.t6dIk600zRcR4wHtWNZH_Q'
-}).addTo(mymap);
-
-var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
 
 
 
- mymap.locate({setView: true, watch: false}) /* This will return map so you can do chaining, follow where you go */
-        .on('locationfound', function(e){
-            var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
-            var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
-                weight: 1,
-                color: 'blue',
-                fillColor: '#cacaca',
-                fillOpacity: 0.2
-            });
-            mymap.addLayer(marker);
-            mymap.addLayer(circle);
-        })
-       .on('locationerror', function(e){
-            console.log(e);
-            alert("Location access denied.");
-     });
 
-//loadMap('mymap');
+
+
+
+
+
 
 
 

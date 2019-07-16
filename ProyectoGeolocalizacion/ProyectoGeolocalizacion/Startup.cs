@@ -43,9 +43,10 @@ namespace ProyectoGeolocalizacion
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSignalR();
+            services.AddProgressiveWebApp();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +59,8 @@ namespace ProyectoGeolocalizacion
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                //app.UseExceptionHandler("/Home/Error");
+                app.UseDeveloperExceptionPage();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -66,13 +68,12 @@ namespace ProyectoGeolocalizacion
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseAuthentication();
-
             app.UseSignalR(routes =>
             {
-                routes.MapHub<Mapa>("/Mapa");
+                routes.MapHub<Mapa>("/chatHub");
             });
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
