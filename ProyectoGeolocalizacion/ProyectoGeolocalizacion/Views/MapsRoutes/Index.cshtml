@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<ProyectoGeolocalizacion.Models.Device>
+
+@{
     ViewData["Title"] = "MapsRoutes";
     string alias = (string)ViewData["alias"];
     string canal = (string)ViewData["canal"];
@@ -70,7 +72,7 @@
         </div>
 
 
-        <div class="col-3">
+        <div class="col-sm-3">
 
             <form asp-controller="MapsRoutes" asp-action="ShowRoute">
 
@@ -85,6 +87,7 @@
 
                 </select>
 
+
                 <hr />
                 <div class="container-fluid">
                     <div class="row">
@@ -98,16 +101,8 @@
                             </div>
                             <div class="form-group">
                                 <!-- Submit button -->
-
-
                                 <input name="canal" value="@canal" type="hidden" />
-
                                 <button id="dscnct" class="btn btn-dark btn-sm" type="submit">Buscar Ruta</button>
-                                <p></p>
-                                <button id="backhome" class="btn btn-dark btn-sm" type="submit" asp-area="" asp-controller="MapsHome" asp-action="Index" asp-route-alias="@alias" asp-route-canal="@canal">Volver a elegir mapa</button>
-
-
-
                             </div>
                             @*<button type="submit" class="btn btn-dark btn-sm" asp-controller="MapsPosition" asp-action="DeviceOff" asp-route-alias="@alias">Desconectar</button>*@
                         </div>

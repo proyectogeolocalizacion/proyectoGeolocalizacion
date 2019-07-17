@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoGeolocalizacion.Data;
+using ProyectoGeolocalizacion.Models;
 
 namespace ProyectoGeolocalizacion.Controllers
 {
@@ -52,5 +54,31 @@ namespace ProyectoGeolocalizacion.Controllers
             var devices = await _context.Device.Where(x => x.Status == "Online").Where(x => x.Channel == canal).ToListAsync();
             return RedirectToAction("Index", "MapsRoutes", devices);
         }
+
+
+        public async Task<IActionResult> ShowRoute(string nombreAlias, string canal, string fecha)
+        {
+            ViewData["alias"] = nombreAlias;
+            ViewData["canal"] = canal;
+            ViewData["fecha"] = fecha;
+            IFormatProvider enUsDateFormat = new CultureInfo("en-US").DateTimeFormat;
+            DateTime date = Convert.ToDateTime(fecha, enUsDateFormat);
+
+            if (nombreAlias != null)
+            {
+                var device = await _context.Device.Where(x => x.Alias == nombreAlias).FirstOrDefaultAsync();
+                var channel = await _context.Channel.Where(x => x.Name == canal).FirstOrDefaultAsync();
+
+
+                List<Location> locations = await _context.Location.Where(x => x.DeviceId == device.Id && x.ChannelId == channel.Id && x.Time.Day == date.Day).ToListAsync();
+                return View(locations);
+
+            }
+            var allLocations = await _context.Location.ToListAsync();
+            return View(allLocations);
+
+        }
+
+
     }
 }
