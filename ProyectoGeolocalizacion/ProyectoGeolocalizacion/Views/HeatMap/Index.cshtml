@@ -9,18 +9,20 @@
     List<Location> listaLocations = (List<Location>)Model;
    
 
-    string locations = "[";
+    string locations ="[";
     foreach (Location x in listaLocations)
     {
 
-        locations += JsonConvert.SerializeObject(new { x.Latitude, x.Longitude }, Formatting.Indented) + ",";
+        locations += JsonConvert.SerializeObject(new {x.Latitude, x.Longitude }, Formatting.Indented) + ",";
 
 
     }
     locations = locations.Substring(0, locations.Length - 1);
     locations += "]";
     locations = locations.Replace("Longitude", "lng");
-    locations = locations.Replace("Latitude", "lat");
+    locations= locations.Replace("Latitude", "lat");
+
+
     locations = locations.Replace("}", ",\"count\":1}");
 }
 
@@ -29,11 +31,11 @@
 
 
 <!-- page-header -->
-<div class="page-header-heatmap">
+<div class="page-header-heatmap" style="height: 140px;">
     <div class="row">
         <div class="offset-1 page-caption">
-            <h2 class="page-title text-center"> Nombre del canal: @canal</h2>
-            <h2 class="text-center"> Concentración de dispositivos</h2>
+            <h2 class="text-center"> Nombre del canal: @canal</h2>
+
         </div>
         <div class="offset-9">
             <h4 class="text-capitalize-"> Mapa de calor</h4>
