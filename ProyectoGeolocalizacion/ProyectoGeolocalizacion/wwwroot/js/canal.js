@@ -5,8 +5,9 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
 //AÑADIR FILAS
 connection.start().then(function () {
-    let alias = document.getElementById("alias").value;
-    connection.invoke("Fila", alias, miCanal);
+    console.log('conectado a signalr');
+    navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
+    connection.invoke("Fila", miCanal);
 }).catch(function (err) {
     return console.error(err.toString());
 });
@@ -33,42 +34,46 @@ var marker = {};
 
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEmisor) {
+    console.log('mensaje recibido');
+    var aliasMinuscula = alias.toLowerCase();
     let randomNumber = Math.floor(Math.random() * 7);
     if (canalDelEmisor == miCanal) {
 
-        if (!marker[alias]) {
-
+        if (!marker[aliasMinuscula] || marker[aliasMinuscula] == undefined) {
+            console.log('creando marker de ', alias);
             switch (randomNumber) {
                 case 1:
-                    marker[alias] = L.marker([latitude, longitude], { icon: blackIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: blackIcon }).bindPopup(alias); break;
                 case 2:
-                    marker[alias] = L.marker([latitude, longitude], { icon: yellowIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: yellowIcon }).bindPopup(alias); break;
                 case 3:
-                    marker[alias] = L.marker([latitude, longitude], { icon: redIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: redIcon }).bindPopup(alias); break;
                 case 4:
-                    marker[alias] = L.marker([latitude, longitude], { icon: blueIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: blueIcon }).bindPopup(alias); break;
                 case 5:
-                    marker[alias] = L.marker([latitude, longitude], { icon: violetIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: violetIcon }).bindPopup(alias); break;
                 case 6:
-                    marker[alias] = L.marker([latitude, longitude], { icon: orangeIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: orangeIcon }).bindPopup(alias); break;
                 case 7:
-                    marker[alias] = L.marker([latitude, longitude], { icon: greyIcon }).bindPopup(alias); break;
+                    marker[aliasMinuscula] = L.marker([latitude, longitude], { icon: greyIcon }).bindPopup(alias); break;
             }
 
             //marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);
-            mymap.addLayer(marker[alias]);
+            mymap.addLayer(marker[aliasMinuscula]);
 
         } else {
-            marker[alias].setLatLng([latitude, longitude]).update();
+            console.log('actualizando marker de', alias)
+            marker[aliasMinuscula].setLatLng([latitude, longitude]).update();
         }
     }
 
 });
 
 //WATCH POSITION - SEGUIMIENTO SIGNALR
-var watchID = navigator.geolocation.watchPosition(recibirPosicion, errorPosicion, options);
+//var watchID; = 
 
 function recibirPosicion(position) {
+    console.log('calculando nuestra posicion en el navegador')
     console.log(position.coords.longitude);
     console.log(position.coords.latitude);
     document.getElementById("userInput").value = position.coords.longitude;
@@ -78,6 +83,7 @@ function recibirPosicion(position) {
     console.log(alias);
     console.log(miCanal);
 
+    console.log('mandar la posicion de', alias);
     connection.invoke("SendMessage", position.coords.longitude, position.coords.latitude, alias, miCanal).catch(function (err) {
         return console.error(err.toString());
 
@@ -118,15 +124,16 @@ desconectBtn.addEventListener("click", function () {
 
 //HACER DESAPARECER MARKER Y FILA SI SE DESCONECTA
 connection.on("QuitarMarker", function (alias) {
+    alias = alias.toLowerCase();
     mymap.removeLayer(marker[alias]);
     marker[alias] = undefined;
-    let fila = document.getElementById(alias);
+    let fila = document.getElementById("fila"+alias);
     tbody.removeChild(fila);
 })
 
 
 //AÑADIR FILA AL CONECTAR
-connection.on("AnadirFila", function (alias, devicesOnline) {
+connection.on("AnadirFila", function (devicesOnline) {
 
     for (var i = 0; i < devicesOnline.length; i++) {
 
@@ -134,11 +141,11 @@ connection.on("AnadirFila", function (alias, devicesOnline) {
         var celda = document.createElement("th");
         var celda2 = document.createElement("th");
         var nuevaFila = document.createElement("tr");
-        nuevaFila.setAttribute("id", devicesOnline[i].alias);
+        nuevaFila.setAttribute("id", "fila" + devicesOnline[i].alias.toLowerCase());
 
         var checkbox = document.createElement('input');
         checkbox.type = "checkbox";
-        checkbox.setAttribute("id", devicesOnline[i].alias);
+        checkbox.setAttribute("id", devicesOnline[i].alias.toLowerCase());
         checkbox.setAttribute("checked", "");
         checkbox.onclick = checkboxMarkers;
 
@@ -146,7 +153,7 @@ connection.on("AnadirFila", function (alias, devicesOnline) {
         var existeUsuario = false;
 
         for (let row = 0; row < tabla.rows.length; row++) {
-            if (tabla.rows[row].id === devicesOnline[i].alias) {
+            if (tabla.rows[row].id === "fila" + devicesOnline[i].alias.toLowerCase()) {
                 existeUsuario = true;
             }
         }

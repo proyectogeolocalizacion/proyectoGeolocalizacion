@@ -48,10 +48,10 @@ namespace ProyectoGeolocalizacion.Hubs
 
         //AÑADIR FILA AL CONECTAR
 
-        public async Task Fila(string alias, string canal)
+        public async Task Fila(string canal)
         {
             List<Device> devicesOnline = await _context.Device.Where(x => x.Status == "Online" && x.Channel==canal).ToListAsync();
-            await Clients.All.SendAsync("AnadirFila", alias, devicesOnline);
+            await Clients.All.SendAsync("AnadirFila", devicesOnline);
 
         }
 
