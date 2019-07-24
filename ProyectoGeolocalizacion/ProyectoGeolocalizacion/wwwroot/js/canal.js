@@ -33,7 +33,7 @@ var marker = {};
 
 
 connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEmisor) {
-    let randomNumber = Math.floor(Math.random() * 3);
+    let randomNumber = Math.floor(Math.random() * 7);
     if (canalDelEmisor == miCanal) {
 
         if (!marker[alias]) {
@@ -45,6 +45,14 @@ connection.on("ReceiveMessage", function (longitude, latitude, alias, canalDelEm
                     marker[alias] = L.marker([latitude, longitude], { icon: yellowIcon }).bindPopup(alias); break;
                 case 3:
                     marker[alias] = L.marker([latitude, longitude], { icon: redIcon }).bindPopup(alias); break;
+                case 4:
+                    marker[alias] = L.marker([latitude, longitude], { icon: blueIcon }).bindPopup(alias); break;
+                case 5:
+                    marker[alias] = L.marker([latitude, longitude], { icon: violetIcon }).bindPopup(alias); break;
+                case 6:
+                    marker[alias] = L.marker([latitude, longitude], { icon: orangeIcon }).bindPopup(alias); break;
+                case 7:
+                    marker[alias] = L.marker([latitude, longitude], { icon: greyIcon }).bindPopup(alias); break;
             }
 
             //marker[alias] = L.marker([latitude, longitude]).bindPopup(alias);

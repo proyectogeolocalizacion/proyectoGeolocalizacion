@@ -64,18 +64,6 @@
                     <tr></tr>
                 </thead>
                 <tbody id="tbody">
-
-                    @*@foreach (Device item in Model)
-                        {
-                            <tr>
-                                <th>
-                                    <input checked type="checkbox" id="@item.Alias" />
-                                </th>
-                                <th id="@item.Alias">@item.Alias</th>
-                            </tr>
-                            <tr></tr>
-
-                        }*@
                 </tbody>
             </table>
             <form asp-controller="MapsPosition" asp-action="DeviceOff">
